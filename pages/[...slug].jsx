@@ -20,7 +20,7 @@ export default function Page({ story }) {
 
   return (
     <Layout metadata={metadata}>
-      <StoryblokComponent blok={story.content} /> {console.log(story?.content?.meta_og_image)}
+      <StoryblokComponent blok={story.content} />
     </Layout>
   );
 }

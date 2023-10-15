@@ -17,8 +17,6 @@ interface LayoutProps {
 
 const Layout = ({ children, metadata }: LayoutProps) => {
 
-  console.log(metadata)
-
   return (
     <>
       <Head>
@@ -31,9 +29,6 @@ const Layout = ({ children, metadata }: LayoutProps) => {
         <meta property="og:url" content={`https://www.stevenpowers.co.uk/${metadata.url}`} />
         <meta property="og:image" content={metadata.og_image} />
         <meta name="twitter:card" content="summary_large_image" />
-        <link rel="preconnect" href="https://fonts.googleapis.com"/>
-        <link rel="preconnect" href="https://fonts.gstatic.com" />
-        <link href="https://fonts.googleapis.com/css2?family=Inter&amp;display=swap" rel="stylesheet"/>
       </Head>
       {children}
       <ScrollTopButton />
