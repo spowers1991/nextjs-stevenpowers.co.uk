@@ -9,7 +9,7 @@ const ContactForm = () => {
                Send an email...
             </Heading>
             <form className='w-full mx-auto sm:mr-16 sm:my-auto' name="contact" method="POST" onSubmit={handleFormSubmit}>
-                <input type="hidden" name="form-name" value="" />
+                <input type="hidden" name="form-name" value="contact"  />
                 <input className="bg-[#fff]  rounded block w-full my-8 p-2  border-2 focus:border-[#434bed] hover:border-[#434bed] border-solid focus:border-solid placeholder-shown:border-[#434bed] border-[#434bed] placeholder-shown:border-dashed focus:outline-none focus:placeholder:text-black" type="text" id="name" name="name" placeholder='Name' required />
                 <input className="bg-[#fff]  rounded block w-full my-8 p-2  border-2 focus:border-[#434bed] hover:border-[#434bed] border-solid focus:border-solid placeholder-shown:border-[#434bed] border-[#434bed]  placeholder-shown:border-dashed focus:outline-none focus:placeholder:text-black" type="text" id="email" name="email" placeholder='Email' required />
                 <textarea rows="15" className=" bg-[#fff] rounded block w-full my-8 p-2  focus:border-[#434bed] border-2 hover:border-[#434bed] border-solid placeholder-shown:border-[#434bed] border-[#434bed]  focus:border-solid placeholder-shown:border-dashed focus:outline-none focus:placeholder:text-black" type="textarea" id="message" name="message" placeholder='Message' required/>
