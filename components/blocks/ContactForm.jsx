@@ -31,6 +31,11 @@ const ContactForm = () => {
     )
 
     async function handleFormSubmit(event) {
+
+        const encode = (data) => {
+            return Object.keys(data).map(key => encodeURIComponent(key) + "=" + encodeURIComponent(data[key])).join('&');
+        }
+
         event.preventDefault();
         
         const formData = [...event.target.elements].filter(element => Boolean(element.name)).reduce((json, element) => {
@@ -42,7 +47,7 @@ const ContactForm = () => {
         
         const response = await fetch('/api/submitForm', {
             method: 'POST',
-            body: formData,
+            body: encode(formData),
             headers: {
                 "Content-Type": "application/x-www-form-urlencoded"
             },
