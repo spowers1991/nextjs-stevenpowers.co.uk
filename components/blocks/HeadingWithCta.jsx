@@ -12,7 +12,7 @@ const HeadingWithCta = ({ blok }) => {
     });
 
     return(
-        <div ref={ref} className={`mx-auto container  ${blok.border_bottom ? 'py-16 md:py-28 border-b' : 'my-16 md:my-28 xl:my-36'} px-6 sxl:px-3 duration-500 ${inView ? 'opacity-100' : 'opacity-20'}`} {...storyblokEditable(blok)}>  
+        <div ref={ref} className={`mx-auto container  ${blok.border_bottom ? 'py-16 md:py-28 border-b' : 'my-16 md:my-28 xl:my-36'} px-6 xl:px-0 duration-500 ${inView ? 'opacity-100' : 'opacity-20'}`} {...storyblokEditable(blok)}>  
 
             <Heading size={blok.heading_size ? blok.heading_size : 'h2'}>
                 <RichText content={blok.title} />
