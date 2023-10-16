@@ -7,7 +7,7 @@ const MobileMenu = (props) => {
   const router = useRouter();
 
   return (
-      <div className={`${props.status === 'open' ? 'translate-x-0' : 'translate-x-[100%] round'} duration-500 top-0 left-0 z-20 fixed w-full h-full bg-white lg:hidden mx-auto font-inter px-6 xl:px-0`}>
+      <div className={`${props.status === 'open' ? 'translate-x-0' : 'translate-x-[100%] round'} duration-300 top-0 left-0 z-20 fixed w-full h-full bg-white lg:hidden mx-auto font-inter px-6 xl:px-0`}>
         <div className="container lg:flex lg:justify-between lg:items-center py-6">
             <div onClick={() => props.mobileMenuState('close')} className='absolute top-6 right-6'>
                 Close Menu
