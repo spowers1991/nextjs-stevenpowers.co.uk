@@ -27,7 +27,10 @@ const OffsetImagesWithAnimation = ({ blok }) => {
   return (
     <div className="xxl:container xxl:mx-auto grid grid-cols-3 lg:grid-cols-4 pb-0 sm:pb-16 md:pb-24 select-none" {...storyblokEditable(blok)}>
       {blok.images.map(( image, index ) => (
-        <div className={`${(isMobile && index === 3) && 'hidden'} overflow-hidden relative ${index%2 == 0 && 'top-[15px] sm:top-[50px]'} h-[fit-content] duration-500 ${
+        isMobile && index === 3 ?
+        null
+        :
+        <div className={`overflow-hidden relative ${index%2 == 0 && 'top-[15px] sm:top-[50px]'} h-[fit-content] duration-500 ${
             scrollPosition > (index+1)*100-100
               ? "translate-y-[15px] sm:translate-y-[50px] opacity-100"
               : "translate-y-[0px] sm:translate-y-[0px] opacity-20"
