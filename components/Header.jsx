@@ -35,7 +35,7 @@ function mobileMenuState(status) {
                     </div>
                 </div>
             </div>
-            <div id="primary-menu" className="hidden bg-gray-100 mt-4 p-4 lg:mt-0 lg:p-0 lg:block">
+            <div id="primary-menu" className="hidden bg-gray-100 mt-4 p-4 lg:mt-0 lg:p-0 lg:bg-transparent lg:block">
                 <ul id="menu" className="lg:flex lg:-mx-4">
                     {props?.globalSettings?.content?.menu.map(( item, index ) => (
                         <li key={index} className={`lg:mx-4 relative after:absolute after:h-[2px] after:left-0 after:bottom-0 after:bg-[#434bed] after:duration-150 hover:after:w-full ${(router.asPath === '/'+item.link.cached_url) ? 'after:w-full' : 'after:w-0'}`}>
