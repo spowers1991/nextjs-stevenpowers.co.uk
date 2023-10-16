@@ -60,8 +60,8 @@ const [ref, inView] = useInView({
               </Link>
             </SwiperSlide>          
           ))} 
-          <div className='container px-3 mx-auto'> 
-            <div className='progressbar !h-1 sm:!h-2 !top-[unset] bottom-0 z-20 !bg-[#ccc] [&_span]:!bg-[#434bed] left-0 right-0 mx-auto'/>
+          <div className='container px-6 xl:px-12 3xl:px-6 mx-auto'> 
+            <div className='container progressbar !h-1 sm:!h-2 !top-[unset] bottom-0 z-20 !bg-[#ccc] [&_span]:!bg-[#434bed] left-0 right-0 mx-auto'/>
           </div>  
         </Swiper>
       </div>

@@ -14,7 +14,7 @@ function mobileMenuState(status) {
 }
 
   return (
-      <header className='relative z-30 mx-auto container font-inter px-6 xl:px-3'>
+      <header className='relative z-30 mx-auto container font-inter px-6 xl:px-12 3xl:px-6'>
         <div className="lg:flex lg:justify-between lg:items-center py-6">
             <div className="flex justify-between items-center">
                 <div>
