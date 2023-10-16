@@ -42,8 +42,6 @@ const ContactForm = () => {
             json[element.name] = element.value;
             return json;
          }, {});
-
-        console.log(formData)
         
         const response = await fetch('/api/submitForm', {
             method: 'POST',
