@@ -1,4 +1,9 @@
+[build]
+  command = "next build"
+  publish = ".next"
+  
 [[redirects]]
-  from = "/*"
-  to = "/404"
-  status = 404
+  from = "/_next/static/*"
+  to = "/static/:splat"
+  status = 301
+  force = true
