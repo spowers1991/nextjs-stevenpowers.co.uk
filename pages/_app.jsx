@@ -10,6 +10,7 @@ import Page from "../components/Page";
 
 // Blok Components
 import SwiperSlider from "../components/blocks/SwiperSlider";
+import StaticImagesSlider from "../components/blocks/StaticImagesSlider";
 import OffsetImagesWithAnimation from '../components/blocks/OffsetImagesWithAnimation'
 import HeadingWithCta from "../components/blocks/HeadingWithCta";
 import TextWithHeadingAside from '../components/blocks/TextWithHeadingAside';
@@ -23,7 +24,8 @@ const components = {
   heading_with_cta: HeadingWithCta,
   text_with_heading_aside: TextWithHeadingAside,
   accordion: Accordion,
-  contact_form: ContactForm
+  contact_form: ContactForm,
+  static_images_slider: StaticImagesSlider
 };
 
 storyblokInit({
