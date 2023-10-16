@@ -33,11 +33,19 @@ const ContactForm = () => {
     async function handleFormSubmit(event) {
         event.preventDefault();
         
-        const formData = new FormData(event.target);
+        const formData = [...event.target.elements].filter(element => Boolean(element.name)).reduce((json, element) => {
+            json[element.name] = element.value;
+            return json;
+         }, {});
+
+        console.log(formData)
         
         const response = await fetch('/api/submitForm', {
             method: 'POST',
             body: formData,
+            headers: {
+                "Content-Type": "application/x-www-form-urlencoded"
+            },
         });
         
         if (response.ok) {
