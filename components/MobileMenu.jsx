@@ -4,9 +4,7 @@ import { useRouter } from 'next/router';
 
 const MobileMenu = (props) => {
 
-    const router = useRouter();
-
-    console.log(props.globalSettings)
+  const router = useRouter();
 
   return (
       <div className={`${props.status === 'open' ? 'translate-x-0' : 'translate-x-[100%] round'} duration-500 top-0 left-0 z-20 fixed w-full h-full bg-white lg:hidden mx-auto font-inter px-6 xl:px-0`}> {console.log(props)}
