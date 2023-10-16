@@ -5,6 +5,7 @@ const ContactForm = () => {
 
     const [submissionSuccess, setSubmissionSuccess] = useState(false);
     const [submissionFailure, setSubmissionFailure] = useState(false);
+    const [pending, setPending] = useState(false);
 
     return(
         <div className={`bg-white font-inter mx-auto container my-16 md:my-36 px-6 xl:px-0 !p-12  rounded duration-500`}>  
@@ -18,6 +19,9 @@ const ContactForm = () => {
                 <textarea rows="15" className=" bg-[#fff] rounded block w-full my-8 p-2  focus:border-[#434bed] border-2 hover:border-[#434bed] border-solid placeholder-shown:border-[#434bed] border-[#434bed]  focus:border-solid placeholder-shown:border-dashed focus:outline-none focus:placeholder:text-black" type="textarea" id="message" name="message" placeholder='Message' required/>
                 <button className={`submit-button ${submissionSuccess ? 'bg-black pointer-events-none' : 'bg-[#434bed]'} ${submissionFailure ? 'bg-[red] pointer-events-none' : 'bg-[#434bed]'} hover:bg-black duration-150 py-3 px-5 text-white rounded-full uppercase text-[11px] sm:text-xs font-[500] tracking-[1px] text-center" type="submit`}>
                     {!submissionSuccess && !submissionFailure ?
+                    pending ?
+                        'Sending message...' 
+                        :
                         'Send message' 
                     :
                         submissionSuccess ?
@@ -42,6 +46,8 @@ const ContactForm = () => {
             json[element.name] = element.value;
             return json;
          }, {});
+
+        setPending(true); // Set loading to true when the form is being submitted
         
         const response = await fetch('/api/submitForm', {
             method: 'POST',

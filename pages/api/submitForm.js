@@ -18,9 +18,9 @@ export default async function handler(req, res) {
 
       // Define the email data
       const mailOptions = {
-        from: 'stevenpowers1991@gmail.com',
+        from: data.email,
         to: 'stevenpowers1991@gmail.com',
-        subject: 'Form Submission',
+        subject: 'Portfolio Site Form Submission',
         text: 'Name: ' + data.name + '\nEmail: ' + data.email + '\nMessage: ' + data.message,
       };
 
