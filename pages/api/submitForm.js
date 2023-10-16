@@ -4,10 +4,12 @@ export default async function handler(req, res) {
   if (req.method === 'POST') {
     try {
       const data = req.body;
-
+        
       // Your Nodemailer configuration
       const transporter = nodemailer.createTransport({
-        service: 'Gmail', // e.g., Gmail, Yahoo, etc.
+        host: 'smtp.gmail.com',
+        port: 465,
+        secure: true, // use SSL
         auth: {
           user: 'stevenpowers1991',
           pass: process.env.GMAIL_PASSCODE,
