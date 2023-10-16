@@ -1,13 +1,20 @@
-import React from 'react';
+import React, {useState} from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
+import MobileMenu from './MobileMenu';
 
 const Header = (props) => {
     
 const router = useRouter();
 
+const [openMobileMenu, setOpenMobileMenu] = useState(false);
+
+function mobileMenuState(status) {
+    setOpenMobileMenu(status);
+}
+
   return (
-      <header className='mx-auto container font-inter px-6 xl:px-0'>
+      <header className='relative z-30 mx-auto container font-inter px-6 xl:px-0'>
         <div className="lg:flex lg:justify-between lg:items-center py-6">
             <div className="flex justify-between items-center">
                 <div>
@@ -17,7 +24,7 @@ const router = useRouter();
                     <p className="text-sm font-light text-gray-600"></p>
                 </div>
                 <div className="lg:hidden">
-                    <Link href="#" aria-label="Toggle navigation" id="primary-menu-toggle">
+                    <div onClick={() => mobileMenuState('open')} aria-label="Toggle navigation" id="primary-menu-toggle">
                         <svg viewBox="0 0 20 20" className="inline-block w-6 h-6" version="1.1" xmlns="http://www.w3.org/2000/svg">
                         <g stroke="none" strokeWidth="1" fill="currentColor" fillRule="evenodd">
                             <g id="icon-shape">
@@ -25,11 +32,11 @@ const router = useRouter();
                             </g>
                         </g>
                         </svg>
-                    </Link>
+                    </div>
                 </div>
             </div>
             <div id="primary-menu" className="hidden bg-gray-100 mt-4 p-4 lg:mt-0 lg:p-0 lg:bg-transparent lg:block">
-                <ul id="menu-menu-1" className="lg:flex lg:-mx-4">
+                <ul id="menu" className="lg:flex lg:-mx-4">
                     {props?.globalSettings?.content?.menu.map(( item, index ) => (
                         <li key={index} className={`lg:mx-4 relative after:absolute after:h-[2px] after:left-0 after:bottom-0 after:bg-[#434bed] after:duration-150 hover:after:w-full ${(router.asPath === '/'+item.link.cached_url) ? 'after:w-full' : 'after:w-0'}`}>
                             <Link href={item.link.cached_url}>
@@ -39,6 +46,7 @@ const router = useRouter();
                     ))}
                 </ul>
             </div>
+            <MobileMenu status={openMobileMenu} mobileMenuState={mobileMenuState} globalSettings={props.globalSettings}/>
         </div>
       </header>
   );
