@@ -55,7 +55,7 @@ const [ref, inView] = useInView({
                 </SwiperSlide>          
             ))}    
           <div className='relative container px-6 xl:px-12 3xl:px-6 mx-auto'> 
-            <div className='max-w-[90%] 3xl:max-w-[100%] progressbar !h-1 sm:!h-2 !top-[unset] bottom-0 z-20 !bg-[#ccc] [&_span]:!bg-[#434bed] left-0 right-0 mx-auto'/>
+            <div className='max-w-[86%] sm:max-w-[90%] progressbar !h-1 sm:!h-2 !top-[unset] bottom-0 z-20 !bg-[#ccc] [&_span]:!bg-[#434bed] left-0 right-0 mx-auto'/>
           </div>
         </Swiper>
       </div>

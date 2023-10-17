@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import { storyblokEditable } from "@storyblok/react";
-import { useMediaQuery } from 'react-responsive';
 
 const OffsetImagesWithAnimation = ({ blok }) => {
   const [scrollPosition, setScrollPosition] = useState(0);
@@ -22,15 +21,10 @@ const OffsetImagesWithAnimation = ({ blok }) => {
 
   const loadingBarWidthArray = ['w-16 sm:w-32', 'w-6 sm:w-12', 'w-12 sm:w-24', 'w-16']
 
-  const isMobile = useMediaQuery({ maxWidth: 900 });
-
   return (
     <div className="xxl:container xxl:mx-auto grid grid-cols-3 lg:grid-cols-4 pb-0 sm:pb-16 md:pb-24 select-none" {...storyblokEditable(blok)}>
       {blok.images.map(( image, index ) => (
-        isMobile && index === 3 ?
-        null
-        :
-        <div className={`${(isMobile && index === 3) && 'hidden'} overflow-hidden relative ${index%2 == 0 && 'top-[15px] sm:top-[50px]'} h-[fit-content] duration-500 ${
+        <div className={`${(index === 3) && 'hidden md:block'} overflow-hidden relative ${index%2 == 0 && 'top-[15px] sm:top-[50px]'} h-[fit-content] duration-500 ${
             scrollPosition > (index+1)*100-100
               ? "translate-y-[15px] sm:translate-y-[50px] opacity-100"
               : "translate-y-[0px] sm:translate-y-[0px] opacity-20"
