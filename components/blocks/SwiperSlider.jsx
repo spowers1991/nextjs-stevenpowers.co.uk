@@ -53,7 +53,7 @@ const [ref, inView] = useInView({
                     className="w-full object-cover !max-h-[800px]"
                     priority={true}
                   />
-                  <div className="absolute left-6 bottom-6 sm:bottom-12 items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-500 bg-[#9043ed] py-3 px-5 text-white rounded-full uppercase text-[11px] sm:text-xs font-[500] tracking-[1px] text-center">
+                  <div className="hidden sm:block absolute left-6 bottom-6 sm:bottom-12 items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-500 bg-[#9043ed] py-3 px-5 text-white rounded-full uppercase text-[11px] sm:text-xs font-[500] tracking-[1px] text-center">
                       {slide.label} {slide.co_developer && '- Co-developer'}                 
                   </div>
                 </div>
