@@ -1,10 +1,19 @@
-import { render } from 'storyblok-rich-text-react-renderer';
+import { render,NODE_PARAGRAPH } from 'storyblok-rich-text-react-renderer';
 
 const RichText = ({ content }) => {
+  return render(content, {
+  nodeResolvers: {
+    [NODE_PARAGRAPH]: (content) => {
+      return (
+        <div>
+          {content}
+        </div>
+      );
+    },
+  }
+})
 
-  const parsedRichText = render(content);
 
-  return parsedRichText;
 };
 
 export default RichText;

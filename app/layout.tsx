@@ -29,6 +29,7 @@ const Layout = ({ children, metadata }: LayoutProps) => {
         <meta property="og:url" content={`https://www.stevenpowers.co.uk/${metadata?.url}`} />
         <meta property="og:image" content={metadata?.og_image} />
         <meta name="twitter:card" content="summary_large_image" />
+        <meta http-equiv="content-language" content = "en" />
         <meta name="google-site-verification" content="xn5gDdTmBFv8xc-84JrKaLI_sR-kkS-Ve73_rY1Kico" />
       </Head>
       {children}
