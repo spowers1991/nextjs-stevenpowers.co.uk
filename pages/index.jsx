@@ -11,8 +11,8 @@ export default function Home({ story }) {
 
   const metadata = {
     title: 'Steven Powers',
-    description: 'This is my portfolio site.',
-    keywords: 'test',
+    description: 'I am a Full-stack Web Developer from Huddersfield in the United Kingdom.',
+    keywords: 'Full-stack Web Developer, Web Developer, React, Wordpress, Huddersfield, United Kingdom',
     no_index: 'index, follow',
     url: 'https:stevenpowers.co.uk/',
     og_image: 'https://a.storyblok.com/f/256039/500x668/42a6b530eb/steven_2.jpg'
