@@ -16,15 +16,15 @@ function mobileMenuState(status) {
 
 useEffect(() => {
     setOnHomePage(true);
-    router.asPath != '/' &&
+    router.asPath !== '/' &&
     setOnHomePage(false);
-  }, [onHomePage]);
+  }, []);
 
   return (
       <header className='relative z-30 mx-auto container font-inter px-6 xl:px-16 3xl:px-0'>
         <div className="lg:flex lg:justify-between lg:items-center py-6">
             <div className="flex justify-between items-center">
-                <div> {console.log(onHomePage)}
+                <div>
                     <Link href="/" className={`relative font-bold text-2xl after:absolute after:h-[3px] after:left-0 after:bottom-0 after:bg-[#434bed] after:duration-150 hover:after:w-full  ${(router.asPath === '/' || onHomePage) ? 'after:w-full' : 'after:w-0 '}`}>
                          {props?.globalSettings?.content?.site_title}
                     </Link>
