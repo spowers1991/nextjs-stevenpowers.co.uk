@@ -12,7 +12,7 @@ const MobileMenu = (props) => {
             <div onClick={() => props.mobileMenuState('close')} className='absolute top-6 right-6'>
                 Close Menu
             </div>
-            <ul id="mobile-menu" className="container  flex flex-col lg:-mx-4 pt-32 mx-[auto] px-12">
+            <ul className="container flex flex-col lg:-mx-4 pt-32 mx-[auto] px-12">
                 <li key={0} onClick={() => props.mobileMenuState('close')} className={`font-semibold text-3xl mb-8 w-[fit-content] lg:mx-4 relative after:absolute after:h-[3px] after:left-0 after:bottom-0 after:bg-[#434bed] after:duration-150 hover:after:w-full ${(router.asPath === '/') ? 'after:w-full' : 'after:w-0'}`}>
                     <Link href="/">
                         Home

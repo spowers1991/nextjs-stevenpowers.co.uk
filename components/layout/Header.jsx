@@ -24,7 +24,7 @@ function mobileMenuState(status) {
                     <p className="text-sm font-light text-gray-600"></p>
                 </div>
                 <div className="lg:hidden">
-                    <div onClick={() => mobileMenuState('open')} aria-label="Toggle navigation" id="primary-menu-toggle">
+                    <div onClick={() => mobileMenuState('open')}>
                         <svg viewBox="0 0 20 20" className="inline-block w-6 h-6" version="1.1" xmlns="http://www.w3.org/2000/svg">
                         <g stroke="none" strokeWidth="1" fill="currentColor" fillRule="evenodd">
                             <g id="icon-shape">
@@ -35,8 +35,8 @@ function mobileMenuState(status) {
                     </div>
                 </div>
             </div>
-            <div id="primary-menu" className="hidden bg-gray-100 mt-4 p-4 lg:mt-0 lg:p-0 lg:bg-transparent lg:block">
-                <ul id="menu" className="lg:flex lg:-mx-4">
+            <div className="hidden bg-gray-100 mt-4 p-4 lg:mt-0 lg:p-0 lg:bg-transparent lg:block">
+                <ul className="lg:flex lg:-mx-4">
                     {props?.globalSettings?.content?.menu.map(( item, index ) => (
                         <li key={index} className={`lg:mx-4 relative after:absolute after:h-[2px] after:left-0 after:bottom-0 after:bg-[#434bed] after:duration-150 hover:after:w-full ${(router.asPath === '/'+item.link.cached_url) ? 'after:w-full' : 'after:w-0'}`}>
                             <Link href={item.link.cached_url}>
