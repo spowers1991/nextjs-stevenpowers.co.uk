@@ -12,7 +12,7 @@ const [openMobileMenu, setOpenMobileMenu] = useState(false);
 function mobileMenuState(status) {
     setOpenMobileMenu(status);
 }
-console.log(router.asPath)
+
   return (
       <header className='relative z-30 mx-auto container font-inter px-6 xl:px-16 3xl:px-0'>
         <div className="lg:flex lg:justify-between lg:items-center py-6">
