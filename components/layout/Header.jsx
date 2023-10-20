@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, { useState, useEffect} from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import MobileMenu from './MobileMenu';
@@ -8,17 +8,24 @@ const Header = (props) => {
 const router = useRouter();
 
 const [openMobileMenu, setOpenMobileMenu] = useState(false);
+const [onHomePage, setOnHomePage] = useState(false);
 
 function mobileMenuState(status) {
     setOpenMobileMenu(status);
 }
 
+useEffect(() => {
+    setOnHomePage(true);
+    router.asPath != '/' &&
+    setOnHomePage(false);
+  }, [onHomePage]);
+
   return (
       <header className='relative z-30 mx-auto container font-inter px-6 xl:px-16 3xl:px-0'>
         <div className="lg:flex lg:justify-between lg:items-center py-6">
             <div className="flex justify-between items-center">
-                <div>
-                    <Link href="/" className={`relative font-bold text-2xl after:absolute after:h-[3px] after:left-0 after:bottom-0 after:bg-[#434bed] after:duration-150 hover:after:w-full  ${(router.pathname === '/') ? 'after:w-full' : 'after:w-0 '}`}>
+                <div> {console.log(onHomePage)}
+                    <Link href="/" className={`relative font-bold text-2xl after:absolute after:h-[3px] after:left-0 after:bottom-0 after:bg-[#434bed] after:duration-150 hover:after:w-full  ${(router.asPath === '/' || onHomePage) ? 'after:w-full' : 'after:w-0 '}`}>
                          {props?.globalSettings?.content?.site_title}
                     </Link>
                     <p className="text-sm font-light text-gray-600"></p>
