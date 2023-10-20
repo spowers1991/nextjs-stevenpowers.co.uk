@@ -18,7 +18,7 @@ function mobileMenuState(status) {
         <div className="lg:flex lg:justify-between lg:items-center py-6">
             <div className="flex justify-between items-center">
                 <div>
-                    <Link href="/" className={`relative font-bold text-2xl after:absolute after:h-[3px] after:left-0 after:bottom-0 after:bg-[#434bed] after:duration-150 hover:after:w-full  ${(router.asPath === '/' || router.asPath === 'NULL' || router.asPath === undefined || router.pathname === '/' || router.pathname === undefined) ? 'after:w-full' : 'after:w-0 '}`}>
+                    <Link href="/" className={`relative font-bold text-2xl after:absolute after:h-[3px] after:left-0 after:bottom-0 after:bg-[#434bed] after:duration-150 hover:after:w-full  ${(router.asPath === '/' || router.pathname === '/' || router.pathname === undefined) ? 'after:w-full' : 'after:w-0 '}`}>
                          {props?.globalSettings?.content?.site_title}
                     </Link>
                     <p className="text-sm font-light text-gray-600"></p>
