@@ -1,5 +1,4 @@
 import { storyblokInit, apiPlugin } from "@storyblok/react";
-import Head from 'next/head';
 
 // A story that we set up for setting Global site data. e.g site tite and menu data.
 import GetStory from '@/utils/GetStory'
@@ -44,12 +43,6 @@ storyblokInit({
 function MyApp({ Component, pageProps, globalSettings }) {
   return (
     <>
-      <Head>
-        <html lang="en" />
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="true" />
-        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400&display=swap" rel="stylesheet" async />
-      </Head>
       <Header globalSettings={globalSettings}/>
         <Component {...pageProps} />
       <Footer />
