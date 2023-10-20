@@ -1,12 +1,17 @@
 import { storyblokInit, apiPlugin } from "@storyblok/react";
+
+// A story that we set up for setting Global site data. e.g site tite and menu data.
 import GetStory from '@/utils/GetStory'
 
-// Core Components
-import Header from '@/components/Header'
-import Footer from '@/components/Footer'
+// CSS
+import '@/css/globals.css';
 
-// Storyblok Template Components
-import Page from "../components/Page";
+// Core Layout Components
+import Header from '@/components/layout/Header'
+import Footer from '@/components/layout/Footer'
+
+// Storyblok Layout Template Components
+import Page from "@/components/content_types/Page";
 
 // Blok Components
 import SwiperSlider from "../components/blocks/SwiperSlider";
@@ -17,6 +22,7 @@ import TextWithHeadingAside from '../components/blocks/TextWithHeadingAside';
 import Accordion from "../components/blocks/Accordion";
 import ContactForm from "../components/blocks/ContactForm";
 
+// Initialise Storyblok and link components to the components in our Storyblok Stories.
 const components = {
   page: Page,
   swiper_slider: SwiperSlider,
@@ -37,9 +43,9 @@ storyblokInit({
 function MyApp({ Component, pageProps, globalSettings }) {
   return (
     <>
-      <link rel="preconnect" href="https://fonts.googleapis.com"/>
-      <link rel="preconnect" href="https://fonts.gstatic.com" />
-      <link href="https://fonts.googleapis.com/css2?family=Inter&amp;display=swap" rel="stylesheet" async />
+      <link rel="preconnect" href="https://fonts.googleapis.com" />
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="true" />
+      <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400&display=swap" rel="stylesheet" async />
       
       <Header globalSettings={globalSettings}/>
         <Component {...pageProps} />

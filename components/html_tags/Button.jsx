@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import resolveLink from './ResolveLink';
+import resolveLink from '../../utils/ResolveLink';
 
 const Button = ({ href, color, children, className, newTab }) => {    
     return (

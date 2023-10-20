@@ -1,7 +1,6 @@
 import React, { ReactNode } from 'react';
 import Head from 'next/head';
-import 'tailwindcss/tailwind.css';
-import ScrollTopButton from '@/components/ScrollTopButton'
+import ScrollTopButton from '@/components/misc/ScrollTopButton'
 
 interface LayoutProps {
   children: ReactNode;
@@ -28,8 +27,8 @@ const Layout = ({ children, metadata }: LayoutProps) => {
         <meta property="og:description" content={metadata?.description} />
         <meta property="og:url" content={`https://www.stevenpowers.co.uk/${metadata?.url}`} />
         <meta property="og:image" content={metadata?.og_image} />
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta http-equiv="content-language" content = "en" />
+        <meta name="twitter:card" content={metadata?.og_image} />
+        <meta httpEquiv="content-language" content = "en" />
         <meta name="google-site-verification" content="xn5gDdTmBFv8xc-84JrKaLI_sR-kkS-Ve73_rY1Kico" />
       </Head>
       {children}

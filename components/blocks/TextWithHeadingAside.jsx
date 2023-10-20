@@ -1,6 +1,6 @@
 
 import { storyblokEditable } from "@storyblok/react";
-import Heading from "../../utils/Heading";
+import Heading from "../html_tags/Heading";
 import RichText from "../../utils/RichText";
 import { useInView } from 'react-intersection-observer';
 

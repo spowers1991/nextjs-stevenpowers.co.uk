@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { storyblokEditable } from "@storyblok/react";
-import Heading from "../../utils/Heading";
+import Heading from "@/components/html_tags/Heading";
 import RichText from "../../utils/RichText";
 import { useInView } from 'react-intersection-observer';
 
@@ -32,7 +32,7 @@ const Accordion = ({ blok }) => {
               className="group hover:text-[#434bed] flex w-full text-2xl md:text-3xl items-center text-left py-[1.25rem]"
               onClick={() => toggleAccordion(index)}
             >
-              <h4 className={`max-w-[350px] md:max-w-none ${openTabs[index] ? 'text-[#434bed]' : ''}`}>
+              <h4 className={`word-break max-w-[250px] lg:max-w-none ${openTabs[index] ? 'text-[#434bed]' : ''}`}>
                 {tab.title}
               </h4>
               <div className="relative ml-auto w-4 md:w-5">

@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import Heading from '@/utils/Heading';
+import Heading from '@/components/html_tags/Heading';
 
 const ContactForm = () => {
 

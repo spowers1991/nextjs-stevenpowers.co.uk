@@ -1,8 +1,8 @@
 import { storyblokEditable } from "@storyblok/react";
 import RichText from "../../utils/RichText";
 import { useInView } from 'react-intersection-observer';
-import Heading from "../../utils/Heading";
-import Button from "../../utils/Button";
+import Heading from "@/components/html_tags/Heading";
+import Button from "../html_tags/Button";
 
 const HeadingWithCta = ({ blok }) => {
 
