@@ -32,7 +32,7 @@ const Accordion = ({ blok }) => {
               className="group lg:hover:text-[#434bed] flex w-full text-2xl md:text-3xl items-center text-left py-[1.25rem]"
               onClick={() => toggleAccordion(index)}
             >
-              <h4 className={`word-break max-w-[250px] lg:max-w-none ${openTabs[index] ? 'text-[#434bed]' : ''}`}>
+              <h4 className={`text-xl sm:text-2xl xl:text-3xl word-break max-w-[250px] lg:max-w-none ${openTabs[index] ? 'text-[#434bed]' : ''}`}>
                 {tab.title}
               </h4>
               <div className="relative ml-auto w-4 md:w-5">

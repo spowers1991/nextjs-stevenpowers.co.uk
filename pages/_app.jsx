@@ -21,6 +21,7 @@ import HeadingWithCta from "../components/blocks/HeadingWithCta";
 import TextWithHeadingAside from '../components/blocks/TextWithHeadingAside';
 import Accordion from "../components/blocks/Accordion";
 import ContactForm from "../components/blocks/ContactForm";
+import LogosGrid from "../components/blocks/LogosGrid";
 
 // Initialise Storyblok and link components to the components in our Storyblok Stories.
 const components = {
@@ -31,7 +32,8 @@ const components = {
   text_with_heading_aside: TextWithHeadingAside,
   accordion: Accordion,
   contact_form: ContactForm,
-  static_images_slider: StaticImagesSlider
+  static_images_slider: StaticImagesSlider,
+  logos_grid: LogosGrid
 };
 
 storyblokInit({
