@@ -40,7 +40,7 @@ const Accordion = ({ blok }) => {
                 <span className={`absolute w-4 md:w-5 h-[2px] bg-black lg:group-hover:bg-[#434bed] duration-150 ${openTabs[index] ? '!bg-[#434bed]' : ''}`}></span>
               </div>
             </button>
-            <div className={`panel ${openTabs[index] ? 'max-h-24' : 'max-h-0'} overflow-hidden duration-500 border-b w-full`}>
+            <div className={`panel ${openTabs[index] ? 'max-h-24' : 'max-h-0'} overflow-hidden duration-200 border-b w-full`}>
               <div className="pb-5 max-w-[350px] md:max-w-[85%] ml-1">
                 <RichText content={tab.content} />
               </div>
