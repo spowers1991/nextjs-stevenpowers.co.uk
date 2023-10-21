@@ -19,13 +19,13 @@ const HeadingWithCta = ({ blok }) => {
             </Heading>
             <div className="flex flex-row flex-wrap gap-3 items-center mt-[-6px] sm:mb-[-9px]">
                 {blok.button_label &&
-                    <Button href={blok.button_link.cached_url} newTab={blok.button_new_tab} className="pb-[10px] sm:pb-[11px]">
+                    <Button href={blok.button_link.cached_url} newTab={blok.button_new_tab}  className="pb-[10px] sm:pb-[11px]" color={blok.button_colour}>
                         {blok.button_label} 
                     </Button>
                 }
 
                 {blok.button_2_label &&
-                    <Button href={blok.button_2_link.cached_url} color='purple' className="pb-[10px] sm:pb-[11px]" newTab={blok.button_2_new_tab}>
+                    <Button href={blok.button_2_link.cached_url} newTab={blok.button_2_new_tab} className="pb-[10px] sm:pb-[11px]" color={blok.button_2_colour}>
                         {blok.button_2_label}
                     </Button>
                 }

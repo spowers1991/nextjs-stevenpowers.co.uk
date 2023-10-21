@@ -26,7 +26,7 @@ const ScrollTopButton = () => {
 
   return (
     <button
-      className={`fixed bg-[#9043ed] hover:bg-black py-3 px-5 text-white rounded-full uppercase text-[11px] sm:text-xs font-[500] tracking-[1px] text-center bottom-6 right-6 z-30 duration-300 ${
+      className={`fixed bg-[#434bed] hover:bg-black py-3 px-5 text-white rounded-full uppercase text-[11px] sm:text-xs font-[500] tracking-[1px] text-center bottom-6 right-6 z-30 duration-300 ${
         scrollPosition > 600 ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none "
       }`}
       onClick={scrollToTop}
