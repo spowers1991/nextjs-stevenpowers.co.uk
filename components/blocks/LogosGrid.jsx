@@ -34,9 +34,18 @@ const [ref, inView] = useInView({
                 </div>
             ))}
         </div>
-        <Button href={blok?.button_link?.cached_url} newTab={blok?.button_new_tab} color={blok.button_colour}>
-            {blok?.button_label} 
-        </Button>
+        <div className="flex flex-row flex-wrap gap-3 items-center mt-[-6px] sm:mb-[-9px]">
+            {blok.button_label &&
+                <Button href={blok?.button_link?.cached_url} newTab={blok?.button_new_tab} color={blok.button_colour}>
+                    {blok?.button_label} 
+                </Button>
+            }
+            {blok.button_2_label &&
+                <Button href={blok?.button_2_link?.cached_url} newTab={blok?.button_2_new_tab} color={blok.button_2_colour}>
+                    {blok?.button_2_label} 
+                </Button>
+            }
+        </div>
       </div>
   );
 };
