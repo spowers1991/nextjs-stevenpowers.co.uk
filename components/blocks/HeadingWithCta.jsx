@@ -17,7 +17,7 @@ const HeadingWithCta = ({ blok }) => {
             <Heading size={blok.heading_size ? blok.heading_size : 'h2'}>
                 <RichText content={blok.title} />
             </Heading>
-            <div className="flex flex-row flex-wrap gap-3 items-center mt-[-6px] sm:mb-[-9px]">
+            <div className="flex flex-row flex-wrap gap-3 sm:gap-3 items-center mt-[-6px] sm:mb-[-9px]">
                 {blok.button_label &&
                     <Button href={blok.button_link.cached_url} newTab={blok.button_new_tab}  className="pb-[10px] sm:pb-[11px]" color={blok.button_colour}>
                         {blok.button_label} 
