@@ -22,7 +22,7 @@ const [ref, inView] = useInView({
 
   return (
     <>
-      <div ref={ref} className={`my-16 md:my-24 !-mt-14 relative duration-1000 ease-out ${inView ? 'opacity-100' : 'opacity-20'}`}  {...storyblokEditable(blok)}>
+      <div ref={ref} className={`my-16 md:my-24 -mt-12 sm:!-mt-16 relative duration-1000 ease-out ${inView ? 'opacity-100' : 'opacity-20'}`}  {...storyblokEditable(blok)}>
         <div className='container mx-auto flex my-6 px-6 xl:px-16 3xl:px-0'>
             <div className='flex gap-x-3 text-[#434bed] ml-auto'>
               <div className={`swiper-prev-${blok._uid} cursor-pointer duration-150`}>
