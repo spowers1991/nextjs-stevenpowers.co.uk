@@ -10,10 +10,10 @@ const ContactForm = () => {
     return(
         <div className={`bg-white font-inter mx-auto container my-16 md:my-28 px-6 sm:px-12  py-12  rounded duration-500`}>  
             <Heading size="h3" className="pb-5">
-               Send an email...
+                {submissionSuccess ? 'You have sent a message...' : 'Send an email...'}
             </Heading>
             <form className='w-full mx-auto sm:mr-16 sm:my-auto' name="contact" method="POST" onSubmit={handleFormSubmit}>
-                <input type="hidden" name="form-name" value="contact"  />
+                <input type="hidden" name="bot-field" />
                 <input className={`bg-[#fff]  rounded block w-full my-8 p-2  border-2 focus:border-[#434bed] hover:border-[#434bed] border-solid focus:border-solid placeholder-shown:border-[#434bed] border-[#434bed] ${pending && 'border-[#ed9043]'} ${submissionSuccess && '!border-[#43ed90]'} ${submissionFailure && '!border-[red]'} placeholder-shown:border-dashed focus:outline-none focus:placeholder:text-black`} type="text" id="name" name="name" placeholder='Name' required />
                 <input className={`bg-[#fff]  rounded block w-full my-8 p-2  border-2 focus:border-[#434bed] hover:border-[#434bed] border-solid focus:border-solid placeholder-shown:border-[#434bed] border-[#434bed] ${pending && 'border-[#ed9043]'} ${submissionSuccess && '!border-[#43ed90]'} ${submissionFailure && '!border-[red]'} placeholder-shown:border-dashed focus:outline-none focus:placeholder:text-black`} type="text" id="email" name="email" placeholder='Email' required />
                 <textarea rows="15" className={`bg-[#fff] rounded block w-full my-8 p-2  focus:border-[#434bed] border-2 hover:border-[#434bed] border-solid placeholder-shown:border-[#434bed] border-[#434bed]        ${pending && 'border-[#ed9043]'} ${submissionSuccess && '!border-[#43ed90]'} ${submissionFailure && '!border-[red]'} focus:border-solid placeholder-shown:border-dashed focus:outline-none focus:placeholder:text-black`} type="textarea" id="message" name="message" placeholder='Message' required/>

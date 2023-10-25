@@ -4,7 +4,14 @@ export default async function handler(req, res) {
   if (req.method === 'POST') {
     try {
       const data = req.body;
-        
+
+      // Check the honeypot field
+      const honeypotField = data['bot-field'];
+      if (honeypotField) {
+        // This is likely a spam submission, so don't process it
+        return res.status(400).json({ message: 'Spam submission detected' });
+      }
+
       // Your Nodemailer configuration
       const transporter = nodemailer.createTransport({
         host: 'smtp.gmail.com',
