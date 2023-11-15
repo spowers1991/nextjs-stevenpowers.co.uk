@@ -1,5 +1,6 @@
 import React, {useState} from 'react';
 import Heading from '@/components/html_tags/Heading';
+import { useInView } from 'react-intersection-observer';
 
 const ContactForm = () => {
 
@@ -7,17 +8,22 @@ const ContactForm = () => {
     const [submissionFailure, setSubmissionFailure] = useState(false);
     const [pending, setPending] = useState(false);
 
+    const [ref, inView] = useInView({
+        triggerOnce: false, // Only trigger once when it first comes into view
+        threshold: 0.7,    // When 50% of the element is in view
+    });
+
     return(
-        <div className={`bg-white font-inter mx-auto container my-16 md:my-28 px-6 sm:px-12  py-12  rounded duration-500`}>  
+        <div ref={ref} className={` font-inter mx-auto container my-16 md:my-28 px-6 xl:px-16 3xl:px-0  duration-500  ${inView ? 'opacity-100' : 'opacity-20'}`}>  
             <Heading size="h3" className="pb-5">
                 {submissionSuccess ? 'You have sent a message...' : 'Send an email...'}
             </Heading>
             <form className='w-full mx-auto sm:mr-16 sm:my-auto' name="contact" method="POST" onSubmit={handleFormSubmit}>
                 <input type="hidden" name="bot-field" />
-                <input className={`bg-[#fff]  rounded block w-full my-8 p-2  border-2 focus:border-[#434bed] hover:border-[#434bed] border-solid focus:border-solid placeholder-shown:border-[#434bed] border-[#434bed] ${pending && 'border-[#ed9043]'} ${submissionSuccess && '!border-[#43ed90]'} ${submissionFailure && '!border-[red]'} placeholder-shown:border-dashed focus:outline-none focus:placeholder:text-black`} type="text" id="name" name="name" placeholder='Name' required />
-                <input className={`bg-[#fff]  rounded block w-full my-8 p-2  border-2 focus:border-[#434bed] hover:border-[#434bed] border-solid focus:border-solid placeholder-shown:border-[#434bed] border-[#434bed] ${pending && 'border-[#ed9043]'} ${submissionSuccess && '!border-[#43ed90]'} ${submissionFailure && '!border-[red]'} placeholder-shown:border-dashed focus:outline-none focus:placeholder:text-black`} type="text" id="email" name="email" placeholder='Email' required />
-                <textarea rows="15" className={`bg-[#fff] rounded block w-full my-8 p-2  focus:border-[#434bed] border-2 hover:border-[#434bed] border-solid placeholder-shown:border-[#434bed] border-[#434bed]        ${pending && 'border-[#ed9043]'} ${submissionSuccess && '!border-[#43ed90]'} ${submissionFailure && '!border-[red]'} focus:border-solid placeholder-shown:border-dashed focus:outline-none focus:placeholder:text-black`} type="textarea" id="message" name="message" placeholder='Message' required/>
-                <button className={`flex gap-x-3 items-center submit-button ${submissionSuccess ? '!bg-[#43ed90] !text-[#000] pointer-events-none' : 'bg-[#434bed]'} ${submissionFailure ? 'bg-[red] pointer-events-none' : 'bg-[#434bed]'} ${pending && 'bg-[#ed9043] hover:bg-[#ed9043] '} hover:bg-black duration-150 py-3 px-5 text-white rounded-full uppercase text-[11px] sm:text-xs font-[500] tracking-[1px] text-center" type="submit`}>
+                <input className={`!bg-[#f4f4f4]   block w-full my-8 p-2  border-2 focus:border-[#434bed] hover:border-[#434bed] border-solid focus:border-solid placeholder-shown:border-[#434bed] border-[#434bed] ${pending && 'border-[#ed9043]'} ${submissionSuccess && '!border-[#43ed90]'} ${submissionFailure && '!border-[red]'} placeholder-shown:border-dashed focus:outline-none focus:placeholder:text-black`} type="text" id="name" name="name" placeholder='Name' required />
+                <input className={`!bg-[#f4f4f4]   block w-full my-8 p-2  border-2 focus:border-[#434bed] hover:border-[#434bed] border-solid focus:border-solid placeholder-shown:border-[#434bed] border-[#434bed] ${pending && 'border-[#ed9043]'} ${submissionSuccess && '!border-[#43ed90]'} ${submissionFailure && '!border-[red]'} placeholder-shown:border-dashed focus:outline-none focus:placeholder:text-black`} type="text" id="email" name="email" placeholder='Email' required />
+                <textarea rows="15" className={`!bg-[#f4f4f4]  block w-full my-8 p-2  focus:border-[#434bed] border-2 hover:border-[#434bed] border-solid placeholder-shown:border-[#434bed] border-[#434bed]        ${pending && 'border-[#ed9043]'} ${submissionSuccess && '!border-[#43ed90]'} ${submissionFailure && '!border-[red]'} focus:border-solid placeholder-shown:border-dashed focus:outline-none focus:placeholder:text-black`} type="textarea" id="message" name="message" placeholder='Message' required/>
+                <button className={`flex gap-x-3 items-center submit-button ${submissionSuccess ? '!bg-[#43ed90] !text-[#000] pointer-events-none' : 'bg-[#434bed]'} ${submissionFailure ? 'bg-[red] pointer-events-none' : 'bg-[#434bed]'} ${pending && 'bg-[#ed9043] hover:bg-[#ed9043] '}  duration-150 py-3 px-5 text-white -full uppercase text-[11px] sm:text-xs font-[500] tracking-[1px] text-center" type="submit`}>
                     {!submissionSuccess && !submissionFailure ?
                     pending ?
                         <div className='flex gap-x-3 items-center '>

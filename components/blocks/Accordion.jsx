@@ -29,15 +29,15 @@ const Accordion = ({ blok }) => {
         {blok.accordion.map((tab, index) => (
           <div className='w-full' key={index}>
             <button
-              className="group lg:hover:text-[#434bed] flex w-full text-2xl md:text-3xl items-center text-left py-[1.25rem]"
+              className="group flex w-full text-2xl md:text-3xl items-center text-left py-[1.25rem]"
               onClick={() => toggleAccordion(index)}
             >
               <h4 className={`text-xl sm:text-2xl xl:text-3xl word-break max-w-[250px] lg:max-w-none ${openTabs[index] ? 'text-[#434bed]' : ''}`}>
                 {tab.title}
               </h4>
               <div className="relative ml-auto w-4 md:w-5">
-                <span className={`absolute w-4 h-[2px] bg-black lg:group-hover:bg-[#434bed] duration-150 transition-transform ${openTabs[index] ? 'rotate-0' : 'rotate-90'}`}></span>
-                <span className={`absolute w-4 h-[2px] bg-black lg:group-hover:bg-[#434bed] duration-150 ${openTabs[index] ? '!bg-[#434bed]' : ''}`}></span>
+                <span className={`absolute w-4 h-[2px] bg-black duration-150 transition-transform ${openTabs[index] ? 'rotate-0' : 'rotate-90'}`}></span>
+                <span className={`absolute w-4 h-[2px] bg-black duration-150 ${openTabs[index] ? '!bg-[#434bed]' : ''}`}></span>
               </div>
             </button>
             <div className={`panel ${openTabs[index] ? 'max-h-24' : 'max-h-0'} overflow-hidden duration-200 border-b w-full`}>
