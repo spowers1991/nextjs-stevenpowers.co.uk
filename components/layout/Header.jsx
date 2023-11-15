@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import MobileMenu from './MobileMenu';
@@ -13,12 +13,30 @@ function mobileMenuState(status) {
     setOpenMobileMenu(status);
 }
 
+ const [scrollPosition, setScrollPosition] = useState(0);
+
+  // Function to update the scroll position in pixels
+  const updateScrollPosition = () => {
+    const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+    setScrollPosition(scrollTop);
+  };
+
+  // Update scroll position on scroll
+  useEffect(() => {
+    window.addEventListener("scroll", updateScrollPosition);
+    return () => {
+      window.removeEventListener("scroll", updateScrollPosition);
+    };
+  }, []);
+
+  
+
   return (
-      <header className='relative z-30 mx-auto container font-inter px-6 xl:px-16 3xl:px-0'>
-        <div className="lg:flex lg:justify-between lg:items-center py-6">
+      <header className='z-30 w-full bg-white fixed '>
+        <div className={`${scrollPosition > 100 && '!py-4'} duration-500 lg:flex lg:justify-between lg:items-center py-6 mx-auto container font-inter px-6 xl:px-16 3xl:px-0`}>
             <div className="flex justify-between items-center">
                 <div>
-                    <Link href="/" className={`relative font-bold text-2xl after:absolute after:h-[3px] after:left-0 after:bottom-0 after:bg-[#434bed] after:duration-150 hover:after:w-full  ${(router.asPath === '/' || router.pathname === '/' || router.pathname === undefined) ? 'after:w-full' : 'after:w-0 '}`}>
+                    <Link href="/" className={`${scrollPosition > 100 && '!text-xl'} duration-500 relative font-bold text-2xl after:absolute after:h-[3px] after:left-0 after:bottom-0 after:bg-[#434bed] after:duration-1000 hover:after:w-full  ${(router.asPath === '/' || router.pathname === '/' || router.pathname === undefined) ? 'after:w-full' : 'after:w-0 '}`}>
                          {props?.globalSettings?.content?.site_title}
                     </Link>
                     <p className="text-sm font-light text-gray-600"></p>
@@ -38,7 +56,7 @@ function mobileMenuState(status) {
             <div className="hidden bg-gray-100 mt-4 p-4 lg:mt-0 lg:p-0 lg:bg-transparent lg:block">
                 <ul className="lg:flex lg:-mx-4">
                     {props?.globalSettings?.content?.menu.map(( item, index ) => (
-                        <li key={index} className={`lg:mx-4 relative after:absolute after:h-[2px] after:left-0 after:bottom-0 after:bg-[#434bed] after:duration-150 hover:after:w-full ${(router.asPath === '/'+item.link.cached_url) ? 'after:w-full' : 'after:w-0'}`}>
+                        <li key={index} className={`lg:mx-4 relative after:absolute after:h-[2px] after:left-0 after:bottom-0 after:bg-[#434bed] after:duration-1000 hover:after:w-full ${(router.asPath === '/'+item.link.cached_url) ? 'after:w-full' : 'after:w-0'}`}>
                             <Link href={item.link.cached_url}>
                                 {item.label}
                             </Link>
