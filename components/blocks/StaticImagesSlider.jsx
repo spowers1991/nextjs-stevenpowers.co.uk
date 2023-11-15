@@ -18,7 +18,7 @@ const [ref, inView] = useInView({
     triggerOnce: false, // Only trigger once when it first comes into view
     threshold: 0.5,    // When 50% of the element is in view
   });
-
+console.log(blok._uid)
   return (
     <>
       <div ref={ref} className={`relative duration-1000 ease-out ${inView ? 'opacity-100' : 'opacity-20'}`}  {...storyblokEditable(blok)}>
@@ -38,9 +38,9 @@ const [ref, inView] = useInView({
               type: 'progressbar',
               el:'.progressbar'
             }}
-          navigation={{
-              nextEl: '.swiper-button-next',
-              prevEl: '.swiper-button-prev',
+            navigation={{
+              nextEl: `.swiper-next-${blok._uid}`,
+              prevEl: `.swiper-prev-${blok._uid}`,
           }}
           modules={[Pagination, Navigation]}
           speed={800}
