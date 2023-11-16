@@ -43,7 +43,7 @@ const OffsetImagesWithAnimation = ({ blok }) => {
           <div
             className={`absolute z-10 bottom-0 left-0 h-1 sm:h-2 ${
               scrollPosition > (index+1)*100-100 ? "w-full" : loadingBarWidthArray[index]
-            } duration-1000 bg-[#434bed] `}
+            } duration-[0.8s] bg-[#434bed] `}
           />
         </div>
       ))}  
