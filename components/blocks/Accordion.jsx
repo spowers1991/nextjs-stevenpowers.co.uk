@@ -36,12 +36,12 @@ const Accordion = ({ blok }) => {
                 {tab.title}
               </h4>
               <div className="relative ml-auto w-4 md:w-5">
-                <span className={`absolute w-4 h-[2px] bg-black duration-150 transition-transform ${openTabs[index] ? 'rotate-0' : 'rotate-90'}`}></span>
-                <span className={`absolute w-4 h-[2px] bg-black duration-150 ${openTabs[index] ? '!bg-[#434bed]' : ''}`}></span>
+                <span className={`absolute w-4 h-[2px] bg-black duration-500 transition-transform ${openTabs[index] ? 'rotate-0' : 'rotate-90'}`}></span>
+                <span className={`absolute w-4 h-[2px] bg-black duration-500 ${openTabs[index] ? '!bg-[#434bed]' : ''}`}></span>
               </div>
             </button>
-            <div className={`panel ${openTabs[index] ? 'max-h-24' : 'max-h-0'} overflow-hidden duration-200 border-b w-full`}>
-              <div className="pb-5 max-w-[350px] md:max-w-[85%] ml-1">
+            <div className={`panel ${openTabs[index] ? 'max-h-24' : 'max-h-0'} overflow-hidden duration-500 border-b w-full`}>
+              <div className="pb-5 max-w-[350px] md:max-w-[50%] ml-1">
                 <RichText content={tab.content} />
               </div>
             </div>
