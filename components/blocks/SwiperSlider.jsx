@@ -44,7 +44,7 @@ const [ref, inView] = useInView({
               prevEl: `.swiper-prev-${blok._uid}`,
           }}
           modules={[Pagination, Navigation]}
-          speed={800}
+          speed={1000}
           loop={false}
           resistanceRatio={0}
           centeredSlides={false}
