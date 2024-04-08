@@ -1,6 +1,5 @@
 import React, {useState} from 'react';
 import Heading from '@/components/html_tags/Heading';
-import { useInView } from 'react-intersection-observer';
 
 const ContactForm = () => {
 
@@ -8,13 +7,8 @@ const ContactForm = () => {
     const [submissionFailure, setSubmissionFailure] = useState(false);
     const [pending, setPending] = useState(false);
 
-    const [ref, inView] = useInView({
-        triggerOnce: false, // Only trigger once when it first comes into view
-        threshold: 0.7,    // When 50% of the element is in view
-    });
-
     return(
-        <div ref={ref} className={` font-inter mx-auto container my-16 md:my-28 px-6 xl:px-16 3xl:px-0  duration-500  ${inView ? 'opacity-100' : 'opacity-20'}`}>  
+        <div className={` font-inter mx-auto container my-16 md:my-28 px-6 xl:px-16 3xl:px-0  duration-500 `}>  
             <Heading size="h3" className="pb-5">
                 {submissionSuccess ? 'You have sent a message...' : 'Send an email...'}
             </Heading>
