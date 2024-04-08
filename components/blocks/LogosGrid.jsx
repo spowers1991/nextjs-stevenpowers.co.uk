@@ -4,6 +4,7 @@ import { useInView } from 'react-intersection-observer';
 import Heading from "@/components/html_tags/Heading";
 import Image from 'next/image';
 import Button from "../html_tags/Button";
+import RichText from "../../utils/RichText";
 
 const LogosGrid = ({ blok }) => {
 
@@ -15,7 +16,7 @@ const [ref, inView] = useInView({
   return ( 
       <div ref={ref} className={`mx-auto container my-16 md:my-24 px-6 xl:px-16 3xl:px-0 border-b pb-16 md:pb-28 duration-500 ${inView ? 'opacity-100' : 'opacity-20'}`} {...storyblokEditable(blok)}>
         <Heading size={'h3'} className="mb-16 sm:mb-24">
-            {blok.title}
+            <RichText content={blok.title}/>  
         </Heading>
         <div className="max-w-7xl items-end grid grid-cols-4 xs:grid-cols-5 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-6 xl:grid-cols-7 gap-12 sm:gap-16 lg:gap-20 pb-16 sm:pb-16 md:pb-24">
             {blok?.logos?.map(( logo, index ) => (
