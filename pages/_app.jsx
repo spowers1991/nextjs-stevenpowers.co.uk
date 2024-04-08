@@ -16,7 +16,6 @@ import Page from "@/components/content_types/Page";
 // Blok Components
 import SwiperSlider from "../components/blocks/SwiperSlider";
 import StaticImagesSlider from "../components/blocks/StaticImagesSlider";
-import OffsetImagesWithAnimation from '../components/blocks/OffsetImagesWithAnimation'
 import HeadingWithCta from "../components/blocks/HeadingWithCta";
 import TextWithHeadingAside from '../components/blocks/TextWithHeadingAside';
 import Accordion from "../components/blocks/Accordion";
@@ -27,7 +26,6 @@ import LogosGrid from "../components/blocks/LogosGrid";
 const components = {
   page: Page,
   swiper_slider: SwiperSlider,
-  offset_images_with_animation: OffsetImagesWithAnimation,
   heading_with_cta: HeadingWithCta,
   text_with_heading_aside: TextWithHeadingAside,
   accordion: Accordion,
