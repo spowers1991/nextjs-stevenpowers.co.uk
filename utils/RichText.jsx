@@ -26,7 +26,7 @@ const RichText = ({ content }) => {
     markResolvers: {
       [MARK_UNDERLINE]: (children, index) => { return (
       <u>
-        <div className='hidden'>
+        <div className='hidden sm:inline-block'>
           <Tooltip id={`richtext-tooltip-${index}`} className='!p-3 !text-sm !bg-[#434bed] !rounded-none !font-[100] !uppercase pb-[10px] sm:pb-[11px] flex items-center gap-x-3 text-[#000]  duration-150 py-[11px] sm:py-[12px] px-5 text-[11px] sm:text-xs !tracking-[1px]' />
         </div>
         {
