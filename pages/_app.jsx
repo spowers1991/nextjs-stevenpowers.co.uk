@@ -15,7 +15,7 @@ import Page from "@/components/content_types/Page";
 
 // Blok Components
 import SwiperSlider from "../components/blocks/SwiperSlider";
-import StaticImagesSlider from "../components/blocks/StaticImagesSlider";
+import SwiperThumbnailSlider from "../components/blocks/SwiperThumbnailSlider";
 import HeadingWithCta from "../components/blocks/HeadingWithCta";
 import TextWithHeadingAside from '../components/blocks/TextWithHeadingAside';
 import Accordion from "../components/blocks/Accordion";
@@ -30,7 +30,7 @@ const components = {
   text_with_heading_aside: TextWithHeadingAside,
   accordion: Accordion,
   contact_form: ContactForm,
-  static_images_slider: StaticImagesSlider,
+  swiper_thumbnail_slider: SwiperThumbnailSlider,
   logos_grid: LogosGrid
 };
 

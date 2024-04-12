@@ -8,11 +8,14 @@ import { storyblokEditable } from "@storyblok/react";
 import 'swiper/css';
 import 'swiper/css/pagination';
 import 'swiper/css/navigation';
+import 'swiper/css/thumbs';
 
 // import required modules
-import { Pagination, Navigation } from 'swiper/modules';
+import { Pagination, Navigation, Thumbs } from 'swiper/modules';
 
 const SwiperSlider = ({ blok }) => {
+
+const [thumbsSwiper, setThumbsSwiper] = useState(null);
 
 const [ref, inView] = useInView({
     triggerOnce: false, // Only trigger once when it first comes into view
@@ -32,7 +35,7 @@ const [ref, inView] = useInView({
               </div>
             </div>
         </div>
-        <Swiper
+        <Swiper 
           slidesPerView={1.5}
           pagination={{
               type: 'progressbar',
@@ -42,7 +45,8 @@ const [ref, inView] = useInView({
               nextEl: `.swiper-next-${blok._uid}`,
               prevEl: `.swiper-prev-${blok._uid}`,
           }}
-          modules={[Pagination, Navigation]}
+          modules={[Pagination, Navigation, Thumbs]}
+          thumbs={{ swiper: thumbsSwiper }}
           speed={1000}
           loop={false}
           resistanceRatio={0}
@@ -51,7 +55,7 @@ const [ref, inView] = useInView({
           className={`static-images-slider xxl:container`}
         >
             {blok.images.map(( image, index ) => (
-                <SwiperSlide className='relative group pb-6' key={index}>
+                <SwiperSlide className='relative group pb-2' key={index}>
                     <div className="w-full h-full relative ">
                         <Image
                             src={image.filename}
@@ -64,10 +68,39 @@ const [ref, inView] = useInView({
                     </div>
                 </SwiperSlide>          
             ))}    
+        </Swiper>
+          <Swiper
+            pagination={{
+              type: 'progressbar',
+              el:'.progressbar'
+            }}
+            speed={1000}
+            modules={[Thumbs, Pagination]}
+            watchSlidesProgress
+            onSwiper={setThumbsSwiper}
+            slidesPerView={4}
+            breakpoints={{ 768: { slidesPerView: 5 } }}
+            className='thumbs-slider'
+          >
+            {blok.images.map(( thumb, index ) => (
+              <SwiperSlide className='cursor-pointer relative group pb-5 p-2' key={index} >                        
+                <div className="w-full h-full relative">
+                    <Image
+                        src={thumb.filename}
+                        alt={thumb.alt}
+                        width={1920}
+                        height={800}
+                        className="image w-full object-cover !max-h-[800px] opacity-40 duration-1000"
+                        priority={true}
+                    />
+                    <div className='absolute top-0 progress w-0 h-1 sm:h-2 duration-1000 bg-[#434bed]' />
+                </div>
+              </SwiperSlide> 
+            ))}
+          </Swiper>
           <div className='relative container px-6 xl:px-12 3xl:px-6 mx-auto'> 
             <div className='max-w-[90%] sm:max-w-[91%] 2xl:max-w-[100%] px-6 progressbar !h-1 sm:!h-2 !top-[unset] bottom-0 z-20 !bg-[#ccc] [&_span]:!bg-[#434bed] left-0 right-0 mx-auto'/>
           </div> 
-        </Swiper>
       </div>
     </>
   );
