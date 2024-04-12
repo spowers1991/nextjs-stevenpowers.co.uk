@@ -17,3 +17,7 @@
 .thumbs-slider .swiper-slide-thumb-active .image{
     opacity: 100% !important;
 }
+
+.swiper-thumbnail-slider .swiper-slide-active .overlay{
+    opacity: 0 !important;
+}

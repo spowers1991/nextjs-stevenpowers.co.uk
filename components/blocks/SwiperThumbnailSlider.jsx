@@ -52,10 +52,10 @@ const [ref, inView] = useInView({
           resistanceRatio={0}
           centeredSlides={false}
           spaceBetween={15}
-          className={`static-images-slider xxl:container`}
+          className={`swiper-thumbnail-slider xxl:container`}
         >
             {blok.images.map(( image, index ) => (
-                <SwiperSlide className='relative group pb-2' key={index}>
+                <SwiperSlide className='relative group mb-2 overflow-hidden' key={index}>
                     <div className="w-full h-full relative ">
                         <Image
                             src={image.filename}
@@ -66,6 +66,7 @@ const [ref, inView] = useInView({
                             priority={true}
                         />
                     </div>
+                    <div className='overlay absolute w-full h-full left-0 top-0 bg-[#ed9043] opacity-30 z-20 duration-1000' />
                 </SwiperSlide>          
             ))}    
         </Swiper>
@@ -90,10 +91,11 @@ const [ref, inView] = useInView({
                         alt={thumb.alt}
                         width={1920}
                         height={800}
-                        className="image w-full object-cover !max-h-[800px] opacity-40 duration-1000"
+                        className="image w-full object-cover !max-h-[800px] opacity-30 duration-1000"
                         priority={true}
                     />
-                    <div className='absolute top-0 progress w-0 h-1 sm:h-2 duration-1000 bg-[#434bed]' />
+                    <div className='overlay absolute w-full h-full left-0 top-0 bg-[#ed9043] opacity-20 z-20' />
+                    <div className='absolute top-0 progress w-0 h-1 sm:h-2 duration-1000 bg-[#434bed] z-30' />
                 </div>
               </SwiperSlide> 
             ))}
