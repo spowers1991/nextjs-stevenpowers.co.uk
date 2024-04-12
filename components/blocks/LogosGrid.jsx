@@ -14,7 +14,7 @@ const [ref, inView] = useInView({
 });
     
   return ( 
-      <div ref={ref} className={`mx-auto container my-16 md:my-24 px-6 xl:px-16 3xl:px-0 border-b pb-16 md:pb-28 duration-500 ${inView ? 'opacity-100' : 'opacity-20'}`} {...storyblokEditable(blok)}>
+      <div ref={ref} className={`shadow-lg p-12 bg-white mx-auto container my-16 md:my-24  duration-500 ${inView ? 'opacity-100' : 'opacity-20'}`} {...storyblokEditable(blok)}>
         <Heading size={'h3'} className="mb-16 sm:mb-24">
             <RichText content={blok.title}/>  
         </Heading>
