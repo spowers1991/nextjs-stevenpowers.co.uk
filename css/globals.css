@@ -5,3 +5,15 @@
 .swiper-button-disabled {
     opacity: 0.5;
 }
+
+.thumbs-slider .swiper-slide-thumb-active {
+    color: #434bed;
+}
+
+.thumbs-slider .swiper-slide-thumb-active .progress{
+    width: 100% !important;
+}
+
+.thumbs-slider .swiper-slide-thumb-active .image{
+    opacity: 100% !important;
+}
