@@ -19,7 +19,7 @@ const [thumbsSwiper, setThumbsSwiper] = useState(null);
 
 const [ref, inView] = useInView({
     triggerOnce: false, // Only trigger once when it first comes into view
-    threshold: 0.5,    // When 50% of the element is in view
+    threshold: 0.25,    // When 50% of the element is in view
   });
 
   return (
