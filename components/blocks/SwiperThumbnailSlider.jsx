@@ -63,7 +63,7 @@ const [ref, inView] = useInView({
                             width={1920}
                             height={800}
                             className="w-full object-cover !max-h-[800px]"
-                            priority={true}
+                            loading="lazy"
                         />
                     </div>
                     <div className='overlay absolute w-full h-full left-0 top-0 bg-[#ed9043] opacity-30 z-20 duration-1000' />
