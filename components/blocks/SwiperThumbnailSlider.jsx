@@ -89,8 +89,8 @@ const [ref, inView] = useInView({
                     <Image
                         src={thumb.filename}
                         alt={thumb.alt}
-                        width={1920}
-                        height={800}
+                        width={315}
+                        height={235}
                         className="image w-full object-cover !max-h-[800px] opacity-30 duration-1000"
                         priority={true}
                     />
