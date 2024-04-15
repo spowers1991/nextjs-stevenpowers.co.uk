@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import Image from 'next/image';
 import { useInView } from 'react-intersection-observer';
@@ -16,11 +16,24 @@ import { Pagination, Navigation, Thumbs } from 'swiper/modules';
 const SwiperSlider = ({ blok }) => {
 
 const [thumbsSwiper, setThumbsSwiper] = useState(null);
+const [imageWidth, setImageWidth] = useState(1920);
+const [imageHeight, setImageHeight] = useState(800);
 
 const [ref, inView] = useInView({
     triggerOnce: false, // Only trigger once when it first comes into view
     threshold: 0.25,    // When 50% of the element is in view
   });
+
+  useEffect(() => {
+    // Detect viewport size on page load
+    if (window.innerWidth < 768) {
+      setImageWidth(315);
+      setImageHeight(235);
+    }
+
+    // Cleanup function
+    return () => {};
+  }, []); // Empty dependency array to only run once on page load
 
   return (
     <>
@@ -60,10 +73,10 @@ const [ref, inView] = useInView({
                         <Image
                             src={image.filename}
                             alt={image.alt}
-                            width={1920}
-                            height={800}
+                            width={imageWidth}
+                            height={imageHeight}
                             className="w-full object-cover !max-h-[800px]"
-                            loading="lazy"
+                            priority={true}
                         />
                     </div>
                     <div className='overlay absolute w-full h-full left-0 top-0 bg-[#ed9043] opacity-30 z-20 duration-1000' />
@@ -92,7 +105,7 @@ const [ref, inView] = useInView({
                         width={315}
                         height={235}
                         className="image w-full object-cover !max-h-[800px] opacity-30 duration-1000"
-                        priority={true}
+                        lazy="true"
                     />
                     <div className='overlay absolute w-full h-full left-0 top-0 bg-[#ed9043] opacity-20 z-20' />
                     <div className='absolute top-0 progress w-0 h-1 sm:h-2 duration-1000 bg-[#434bed] z-30' />
