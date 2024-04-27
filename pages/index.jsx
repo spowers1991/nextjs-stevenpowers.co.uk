@@ -11,10 +11,10 @@ export default function Home({ story }) {
 
   const metadata = {
     title: 'Steven Powers',
-    description: 'I am a Full-stack Web Developer from Huddersfield in the United Kingdom.',
-    keywords: 'Full-stack Web Developer, Web Developer, React, Wordpress, Huddersfield, United Kingdom',
+    description: 'I am a Full-stack web developer with years of agency experience, working together on some international and award winning websites.',
+    keywords: 'Full-stack Web Developer, Web Developer, React, Storyblok, Wordpress, Huddersfield, United Kingdom',
     no_index: 'index, follow',
-    url: 'https:stevenpowers.co.uk/',
+    url: 'https//:www.stevenpowers.co.uk/',
     og_image: 'https://a.storyblok.com/f/256039/500x374/ae4bdebf26/steven-powers.jpg'
   };
 
