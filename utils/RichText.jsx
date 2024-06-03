@@ -33,7 +33,7 @@ const RichText = ({ content }) => {
         children?.includes('(') ?
           <a className="relative sm:hover:opacity-40 sm:hover:cursor-help duration-[0.25s]" data-tooltip-id={`richtext-tooltip-${index}`} data-tooltip-content={sanitizeRichText(children)}>
             {removeBracketedRichText(children)}
-            <div className='absolute top-2 right-0 !text-sm rounded-full'>
+            <div className='hidden lg:absolute top-2 right-0 !text-sm rounded-full'>
               ?
             </div>
           </a> 
