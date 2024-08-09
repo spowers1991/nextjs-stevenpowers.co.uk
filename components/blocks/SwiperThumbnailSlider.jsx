@@ -83,39 +83,39 @@ const [ref, inView] = useInView({
                 </SwiperSlide>          
             ))}    
         </Swiper>
-          <Swiper
-            pagination={{
-              type: 'progressbar',
-              el:'.progressbar'
-            }}
-            speed={1000}
-            modules={[Thumbs, Pagination]}
-            watchSlidesProgress
-            onSwiper={setThumbsSwiper}
-            slidesPerView={4}
-            breakpoints={{ 768: { slidesPerView: 5 } }}
-            className='thumbs-slider'
-          >
-            {blok.images.map(( thumb, index ) => (
-              <SwiperSlide className='cursor-pointer relative group pb-5 p-2' key={index} >                        
-                <div className="w-full h-full relative">
-                    <Image
-                        src={thumb.filename}
-                        alt={thumb.alt}
-                        width={315}
-                        height={235}
-                        className="image w-full object-cover !max-h-[800px] opacity-30 duration-1000"
-                        lazy="true"
-                    />
-                    <div className='overlay absolute w-full h-full left-0 top-0 bg-[#ed9043] opacity-20 z-20' />
-                    <div className='absolute top-0 progress w-0 h-1 sm:h-2 duration-1000 bg-[#434bed] z-30' />
-                </div>
-              </SwiperSlide> 
-            ))}
-          </Swiper>
-          <div className='relative container px-6 xl:px-12 3xl:px-6 mx-auto'> 
-            <div className='max-w-[90%] sm:max-w-[91%] 2xl:max-w-[100%] px-6 progressbar !h-1 sm:!h-2 !top-[unset] bottom-0 z-20 !bg-[#ccc] [&_span]:!bg-[#434bed] left-0 right-0 mx-auto'/>
-          </div> 
+        <Swiper
+          pagination={{
+            type: 'progressbar',
+            el:'.progressbar'
+          }}
+          speed={1000}
+          modules={[Thumbs, Pagination]}
+          watchSlidesProgress
+          onSwiper={setThumbsSwiper}
+          slidesPerView={4}
+          breakpoints={{ 768: { slidesPerView: 5 } }}
+          className='thumbs-slider'
+        >
+          {blok.images.map(( thumb, index ) => (
+            <SwiperSlide className='cursor-pointer relative group pb-5 p-2' key={index} >                        
+              <div className="w-full h-full relative">
+                  <Image
+                      src={thumb.filename}
+                      alt={thumb.alt}
+                      width={315}
+                      height={235}
+                      className="image w-full object-cover !max-h-[800px] opacity-30 duration-1000"
+                      lazy="true"
+                  />
+                  <div className='overlay absolute w-full h-full left-0 top-0 bg-[#ed9043] opacity-20 z-20' />
+                  <div className='absolute top-0 progress w-0 h-1 sm:h-2 duration-1000 bg-[#434bed] z-30' />
+              </div>
+            </SwiperSlide> 
+          ))}
+        </Swiper>
+        <div className='relative container px-6 xl:px-12 3xl:px-6 mx-auto'> 
+          <div className='max-w-[90%] sm:max-w-[91%] 2xl:max-w-[100%] px-6 progressbar !h-1 sm:!h-2 !top-[unset] bottom-0 z-20 !bg-[#ccc] [&_span]:!bg-[#434bed] left-0 right-0 mx-auto'/>
+        </div> 
       </div>
     </>
   );
