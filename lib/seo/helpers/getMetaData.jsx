@@ -1,4 +1,4 @@
-export function getMetadata(story) {
+export function getMetaData(story) {
     return {
       title: story?.content?.meta_title || story?.content?.title || 'Steven Powers',
       description: story?.content?.meta_description || 'This is my portfolio site.',

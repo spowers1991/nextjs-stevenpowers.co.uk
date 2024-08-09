@@ -1,5 +1,5 @@
 import Meta from "@/components/misc/Meta";
-import { getMetadata } from '@/lib/seo/helpers/getMetadata'
+import { getMetaData } from '@/lib/seo/helpers/getMetaData'
 import { getStaticProps as fetchStaticProps } from '@/lib/storyblok/actions/generatePageData';
 
 import {
@@ -10,7 +10,7 @@ import {
 
 export default function Home({ story }) {
   story = useStoryblokState(story);
-  const metadata = getMetadata(story);
+  const metadata = getMetaData(story);
 
   return (
     <Meta metadata={metadata}>
