@@ -53,6 +53,7 @@ const [ref, inView] = useInView({
         >
           {blok.slides.map(( slide, index ) => (
             <SwiperSlide className='relative group pb-6' key={index}>
+              {slide.new_tab ?
               <Link href={slide.link.cached_url} target="_blank"> 
                 <div className="w-full h-full relative ">
                   <Image
@@ -63,14 +64,34 @@ const [ref, inView] = useInView({
                     className="w-full object-cover !max-h-[800px]"
                     priority={true}
                   />
-                  <div className="hidden sm:block absolute left-12 bottom-12 items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-500 bg-[#9043ed] py-3 px-5 text-white  uppercase text-[11px] sm:text-xs font-[500] tracking-[1px] text-center">
+                  <div className="hidden sm:block absolute left-12 bottom-12 items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-500 bg-[#43a0ed] py-3 px-5 text-white  uppercase text-[11px] sm:text-xs font-[500] tracking-[1px] text-center">
+                    <div className='flex items-center gap-x-4'>
+                        {slide.label} {slide.co_developer && '- Co-developer'}  
+                        <svg className="w-5 h-5" fill="currentColor"  clipRule="evenodd" fillRule="evenodd" strokeLinejoin="round" strokeMiterlimit="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="m20.998 8.498h-17.996c-.569 0-1.001.464-1.001.999 0 .118-.105-.582 1.694 10.659.077.486.496.842.988.842h14.635c.492 0 .911-.356.988-.842 1.801-11.25 1.693-10.54 1.693-10.66 0-.558-.456-.998-1.001-.998zm-.964-3.017h-16.03c-.524 0-1.001.422-1.001 1.007 0 .081-.01.016.14 1.01h17.752c.152-1.012.139-.931.139-1.009 0-.58-.469-1.008-1-1.008zm-15.973-1h15.916c.058-.436.055-.426.055-.482 0-.671-.575-1.001-1.001-1.001h-14.024c-.536 0-1.001.433-1.001 1 0 .056-.004.043.055.483z" fillRule="nonzero"/></svg>               
+                    </div>
+                  </div>
+                </div>
+              </Link>
+              :
+              <Link href={slide.link.cached_url}> 
+                <div className="w-full h-full relative ">
+                  <Image
+                    src={slide.image.filename}
+                    alt={slide.image.alt}
+                    width={1920}
+                    height={800}
+                    className="w-full object-cover !max-h-[800px]"
+                    priority={true}
+                  />
+                  <div className="hidden sm:block absolute left-12 bottom-12 items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-500 bg-[#434bed] py-3 px-5 text-white  uppercase text-[11px] sm:text-xs font-[500] tracking-[1px] text-center">
                       <div className='flex items-center gap-x-4'>
-                            {slide.label} {slide.co_developer && '- Co-developer'}  
-                            <svg className="w-5 h-5" fill="currentColor"  clipRule="evenodd" fillRule="evenodd" strokeLinejoin="round" strokeMiterlimit="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="m20.998 8.498h-17.996c-.569 0-1.001.464-1.001.999 0 .118-.105-.582 1.694 10.659.077.486.496.842.988.842h14.635c.492 0 .911-.356.988-.842 1.801-11.25 1.693-10.54 1.693-10.66 0-.558-.456-.998-1.001-.998zm-.964-3.017h-16.03c-.524 0-1.001.422-1.001 1.007 0 .081-.01.016.14 1.01h17.752c.152-1.012.139-.931.139-1.009 0-.58-.469-1.008-1-1.008zm-15.973-1h15.916c.058-.436.055-.426.055-.482 0-.671-.575-1.001-1.001-1.001h-14.024c-.536 0-1.001.433-1.001 1 0 .056-.004.043.055.483z" fillRule="nonzero"/></svg>               
+                        {slide.label} {slide.co_developer && '- Co-developer'}  
+                        <svg className="w-4 h-4 sm:w-5 sm:h-5" fill="currentColor" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm-1.568 18.005l-1.414-1.415 4.574-4.59-4.574-4.579 1.414-1.416 5.988 5.995-5.988 6.005z"/></svg>              
                       </div>
                   </div>
                 </div>
               </Link>
+              }
             </SwiperSlide>          
           ))} 
           <div className='relative container px-6 xl:px-12 3xl:px-6 mx-auto'> 

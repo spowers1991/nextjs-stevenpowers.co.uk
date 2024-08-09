@@ -61,7 +61,7 @@ const ContactForm = () => {
 
         setPending(true); // Set loading to true when the form is being submitted
         
-        const response = await fetch('/api/submitForm', {
+        const response = await fetch('/api/contact/submitForm', {
             method: 'POST',
             body: encode(formData),
             headers: {

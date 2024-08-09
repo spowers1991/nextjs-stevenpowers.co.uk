@@ -1,4 +1,6 @@
-import Layout from "@/components/layout/Layout"
+import Meta from "@/components/misc/Meta";
+import { getMetaData } from '@/lib/seo/helpers/getMetaData'
+import { getStaticProps as fetchStaticProps } from '@/lib/storyblok/actions/generatePageData';
 
 import {
   useStoryblokState,
@@ -8,38 +10,15 @@ import {
 
 export default function Home({ story }) {
   story = useStoryblokState(story);
-
-  const metadata = {
-    title: 'Steven Powers',
-    description: 'I am a Full-stack web developer with years of agency experience, working together on some international and award winning websites.',
-    keywords: 'Full-stack Web Developer, Web Developer, React, Storyblok, Wordpress, Huddersfield, United Kingdom',
-    no_index: 'index, follow',
-    url: 'https//:www.stevenpowers.co.uk/',
-    og_image: 'https://a.storyblok.com/f/256039/500x374/ae4bdebf26/steven-powers.jpg'
-  };
+  const metadata = getMetaData(story);
 
   return (
-    <Layout metadata={metadata}>
+    <Meta metadata={metadata}>
       <StoryblokComponent blok={story.content} />
-    </Layout>
+    </Meta>
   );
 }
 
-export async function getStaticProps() {
-  let slug = "home";
-
-  let sbParams = {
-    version: "draft", // or 'published'
-  };
-
-  const storyblokApi = getStoryblokApi();
-  let { data } = await storyblokApi.get(`cdn/stories/${slug}`, sbParams);
-
-  return {
-    props: {
-      story: data ? data.story : false,
-      key: data ? data.story.id : false,
-    },
-    revalidate: 3600,
-  };
+export async function getStaticProps(context) {
+  return fetchStaticProps(context); 
 }

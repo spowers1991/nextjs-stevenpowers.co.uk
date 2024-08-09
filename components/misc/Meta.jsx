@@ -1,20 +1,8 @@
-import React, { ReactNode } from 'react';
+import React from 'react';
 import Head from 'next/head';
 import ScrollTopButton from '@/components/misc/ScrollTopButton'
 
-interface LayoutProps {
-  children: ReactNode;
-  metadata: {
-    title: string;
-    description: string;
-    keywords: string;
-    no_index: string;
-    url: string;
-    og_image : string;
-  };
-}
-
-const Layout = ({ children, metadata }: LayoutProps) => {
+const Meta = ({ children, metadata }) => {
 
   return (
     <>
@@ -31,10 +19,10 @@ const Layout = ({ children, metadata }: LayoutProps) => {
         <meta httpEquiv="content-language" content = "en" />
         <meta name="google-site-verification" content="xn5gDdTmBFv8xc-84JrKaLI_sR-kkS-Ve73_rY1Kico" />
       </Head>
-      {children}
+        {children}
       <ScrollTopButton />
     </>
   );
 };
 
-export default Layout;
+export default Meta;

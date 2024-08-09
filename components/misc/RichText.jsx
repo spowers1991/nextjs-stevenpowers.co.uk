@@ -2,7 +2,7 @@ import { render, MARK_UNDERLINE, NODE_PARAGRAPH } from 'storyblok-rich-text-reac
 import 'react-tooltip/dist/react-tooltip.css'
 import { Tooltip } from 'react-tooltip'
 
-const RichText = ({ content }) => {
+const RichText = ({ content, className }) => {
   
   function sanitizeRichText(inputString) {
 
@@ -46,7 +46,7 @@ const RichText = ({ content }) => {
   nodeResolvers: {
     [NODE_PARAGRAPH]: (content) => {
       return (
-        <div>
+        <div className={`${className}`}>
           {content}
         </div>
       );

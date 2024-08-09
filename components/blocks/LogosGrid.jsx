@@ -4,7 +4,7 @@ import { useInView } from 'react-intersection-observer';
 import Heading from "@/components/html_tags/Heading";
 import Image from 'next/image';
 import Button from "../html_tags/Button";
-import RichText from "../../utils/RichText";
+import RichText from "../misc/RichText";
 
 const LogosGrid = ({ blok }) => {
 

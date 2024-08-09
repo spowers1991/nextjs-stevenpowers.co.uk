@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { storyblokEditable } from "@storyblok/react";
 import Heading from "@/components/html_tags/Heading";
-import RichText from "../../utils/RichText";
+import RichText from "../misc/RichText";
 import { useInView } from 'react-intersection-observer';
 
 const Accordion = ({ blok }) => {
