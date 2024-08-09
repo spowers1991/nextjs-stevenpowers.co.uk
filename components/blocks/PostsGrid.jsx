@@ -1,7 +1,7 @@
 import React from 'react';
 import { storyblokEditable } from "@storyblok/react";
 import { useInView } from 'react-intersection-observer';
-import getStoriesByIds from '@/lib/storyblok/helpers/getStoriesByIds';
+import useGetStoriesByIds from '@/lib/storyblok/helpers/useGetStoriesByIds';
 import Heading from '@/components/html_tags/Heading'
 import Image from 'next/image';
 import Link from 'next/link';
@@ -13,7 +13,7 @@ const PostsGrid = ({ blok }) => {
     threshold: 0.015,   // When 1.5% of the element is in view
   });
 
-  const filteredStories = getStoriesByIds(blok.posts);
+  const filteredStories = useGetStoriesByIds(blok.posts);
   let FirstFullWidthImageBlok = null;
 
   return (
