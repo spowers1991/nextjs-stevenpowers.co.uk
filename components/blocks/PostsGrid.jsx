@@ -18,6 +18,7 @@ const PostsGrid = ({ blok }) => {
   const tags = getStoriesTags(filteredStories)
 
   let FirstFullWidthImageBlok = null;
+  const blurDataURL = "data:image/jpeg;base64,..."
 
   return (
     <div ref={ref} className={`mx-auto container my-16 md:my-28 px-6 xl:px-16 3xl:px-0 duration-500 ${inView ? 'opacity-100' : 'opacity-20'}`} {...storyblokEditable(blok)}>
@@ -28,7 +29,7 @@ const PostsGrid = ({ blok }) => {
         {filteredStories.map((story, index) => (
           // Get the image from the first full width image block is on the post.
           FirstFullWidthImageBlok = story.content.body.filter(story => story.component === "full_width_image")[0],
-
+          
           <div key={story.uuid} className='grod-cols-1'>
             <Link key={story.uuid} href={`/projects/${story.slug}`} passHref>
               <div className='relative col-span-1 bg-white flex flex-col h-full cursor-pointer hover:shadow-2xl duration-150'>
@@ -41,6 +42,8 @@ const PostsGrid = ({ blok }) => {
                       height={600}
                       className="w-full object-cover"
                       priority={true}
+                      placeholder="blur"
+                      blurDataURL={blurDataURL}
                     />
                   )}
                   <div className='bg-[#434bed] opacity-20 absolute w-full h-full left-0 top-0' />
