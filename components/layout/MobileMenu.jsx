@@ -22,7 +22,7 @@ const MobileMenu = ({ mobileMenuToggleState, mobileMenuToggleCallback }) => {
                     </Link>
                 </li>
                 {globalSettings?.content?.menu.map(( item, index ) => (
-                    <li key={index+1} onClick={() => mobileMenuToggleCallback('close')} className={`font-semibold text-3xl mb-8 w-[fit-content] lg:mx-4 relative after:absolute after:h-[3px] after:left-0 after:bottom-0 after:bg-[#434bed] after:duration-150 hover:after:w-full ${(router.asPath === '/'+item.link.cached_url) ? 'after:w-full' : 'after:w-0'}`}>
+                    <li key={index+1} onClick={() => mobileMenuToggleCallback('close')} className={`font-semibold text-3xl mb-8 w-[fit-content] lg:mx-4 relative after:absolute after:h-[3px] after:left-0 after:bottom-0 after:bg-[#434bed] after:duration-150 hover:after:w-full ${(router.asPath?.replace(/\//g, '') === item.link.cached_url?.replace(/\//g, '')) ? 'after:w-full' : 'after:w-0'}`}>
                         <Link href={item.link.cached_url}>
                             {item.label}
                         </Link>
