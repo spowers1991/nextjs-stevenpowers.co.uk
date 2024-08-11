@@ -1,8 +1,5 @@
 import { storyblokEditable } from "@storyblok/react";
-import RichText from "../misc/RichText";
 import { useInView } from 'react-intersection-observer';
-import Heading from "@/components/html_tags/Heading";
-import Button from "../html_tags/Button";
 import Image from 'next/image';
 
 const SplitImage = ({ blok }) => {
@@ -24,7 +21,7 @@ const SplitImage = ({ blok }) => {
                                 alt={image.alt}
                                 width={1920}
                                 height={800}
-                                className="w-full object-cover"
+                                className="w-full object-cover bg-white"
                                 placeholder="blur"
                                 blurDataURL={blurDataURL}
                             />

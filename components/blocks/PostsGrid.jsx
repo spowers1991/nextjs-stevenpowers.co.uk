@@ -40,7 +40,7 @@ const PostsGrid = ({ blok }) => {
                       alt={FirstFullWidthImageBlok.image.alt}
                       width={800}
                       height={600}
-                      className="w-full object-cover"
+                      className="w-full object-cover bg-white"
                       priority={true}
                       placeholder="blur"
                       blurDataURL={blurDataURL}

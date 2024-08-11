@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react';
+import React from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import Image from 'next/image';
 import { useInView } from 'react-intersection-observer';
@@ -61,7 +61,7 @@ const [ref, inView] = useInView({
                     alt={slide.image.alt}
                     width={1920}
                     height={800}
-                    className="w-full object-cover !max-h-[800px]"
+                    className="w-full object-cover !max-h-[800px] bg-white"
                     priority={true}
                   />
                   <div className="hidden sm:block absolute left-12 bottom-12 items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-500 bg-[#43a0ed] py-3 px-5 text-white  uppercase text-[11px] sm:text-xs font-[500] tracking-[1px] text-center">
@@ -80,7 +80,7 @@ const [ref, inView] = useInView({
                     alt={slide.image.alt}
                     width={1920}
                     height={800}
-                    className="w-full object-cover !max-h-[800px]"
+                    className="w-full object-cover !max-h-[800px] bg-white"
                     priority={true}
                   />
                   <div className="hidden sm:block absolute left-12 bottom-12 items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-500 bg-[#434bed] py-3 px-5 text-white  uppercase text-[11px] sm:text-xs font-[500] tracking-[1px] text-center">

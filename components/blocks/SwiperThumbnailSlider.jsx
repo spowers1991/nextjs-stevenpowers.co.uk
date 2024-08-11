@@ -75,7 +75,7 @@ const [ref, inView] = useInView({
                             alt={image.alt}
                             width={imageWidth}
                             height={imageHeight}
-                            className="w-full object-cover !max-h-[800px]"
+                            className="w-full object-cover !max-h-[800px] bg-white"
                             priority={true}
                         />
                     </div>
@@ -104,7 +104,7 @@ const [ref, inView] = useInView({
                       alt={thumb.alt}
                       width={315}
                       height={235}
-                      className="image w-full object-cover !max-h-[800px] opacity-30 duration-1000"
+                      className="image w-full object-cover !max-h-[800px] opacity-30 duration-1000 bg-white"
                       lazy="true"
                   />
                   <div className='overlay absolute w-full h-full left-0 top-0 bg-[#ed9043] opacity-20 z-20' />
