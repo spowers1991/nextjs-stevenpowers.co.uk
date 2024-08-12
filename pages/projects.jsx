@@ -1,10 +1,11 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import Meta from "@/components/misc/Meta";
 import { useInView } from 'react-intersection-observer';
 import Image from 'next/image';
 import Heading from '@/components/html_tags/Heading';
 import { useStoryblok } from '@/lib/storyblok/StoryblokContext';
 import Link from 'next/link';
+import StoriesPagination from '@/components/selectors/StoriesPagination';
 
 const Projects = () => {
   const [ref, inView] = useInView({
@@ -12,9 +13,14 @@ const Projects = () => {
     threshold: 0.015,
   });
 
-  const { getStoriesByContentType, getStoriesTags } = useStoryblok();
+  const { getStoriesByContentType, getStoriesTags, paginatedStories, setPaginatedStories } = useStoryblok();
+
   const stories = getStoriesByContentType('project');
-  const tags = getStoriesTags(stories)
+  const tags = getStoriesTags(stories);
+
+  useEffect(() => {
+    setPaginatedStories(stories.slice(0, 6));
+  }, [setPaginatedStories]);
 
   return (
     <Meta>
@@ -24,9 +30,9 @@ const Projects = () => {
             Projects
           </Heading>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-6 gap-y-12">
-            {stories.map((story, index) => {
+            {paginatedStories?.map((story, index) => {
               // Extract the first full width image block from the story content
-              const FirstFullWidthImageBlok = story.content.body.find(block => block.component === "full_width_image");
+              const FirstFullWidthImageBlok = story?.content?.body?.find(block => block.component === "full_width_image");
 
               return (
                 <Link key={story.uuid} href={`/projects/${story.slug}`} passHref>
@@ -54,12 +60,11 @@ const Projects = () => {
                             Tags:
                           </span>
                           <div className="flex flex-row flex-wrap gap-3">
-                              { tags[index]?.map(( tag, index ) => (
-                                      <span key={index} className="bg-[#9043ed] text-white h-[37.5px] sm:h-[43px] b-[10px] sm:pb-[11px] flex items-center gap-x-3 duration-150 py-[11px] sm:py-[12px] px-5 uppercase text-[11px] sm:text-xs font-[500] tracking-[1px]">
-                                          {tag}
-                                      </span>
-                                  ))
-                              }
+                              {tags[index]?.map((tag, tagIndex) => (
+                                <span key={tagIndex} className="bg-[#9043ed] text-white h-[37.5px] sm:h-[43px] b-[10px] sm:pb-[11px] flex items-center gap-x-3 duration-150 py-[11px] sm:py-[12px] px-5 uppercase text-[11px] sm:text-xs font-[500] tracking-[1px]">
+                                  {tag}
+                                </span>
+                              ))}
                           </div>
                         </div>
                       }
@@ -82,6 +87,7 @@ const Projects = () => {
               );
             })}
           </div>
+          <StoriesPagination stories={stories} storiesPerPage={6}/>
         </div>
       </main>
     </Meta>
