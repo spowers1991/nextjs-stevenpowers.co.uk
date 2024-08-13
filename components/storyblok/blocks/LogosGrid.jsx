@@ -3,8 +3,8 @@ import { storyblokEditable } from "@storyblok/react";
 import { useInView } from 'react-intersection-observer';
 import Heading from "@/components/html_tags/Heading";
 import Image from 'next/image';
-import Button from "../html_tags/Button";
-import RichText from "../misc/RichText";
+import Button from "@/components/html_tags/Button";
+import RichText from "@/components/storyblok/plugins/storyblok-rich-text-react-renderer/RichText";
 
 const LogosGrid = ({ blok }) => {
 

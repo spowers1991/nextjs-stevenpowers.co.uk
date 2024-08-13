@@ -1,7 +1,7 @@
 
 import { storyblokEditable } from "@storyblok/react";
-import Heading from "../html_tags/Heading";
-import RichText from "../misc/RichText";
+import Heading from "@/components//html_tags/Heading";
+import RichText from "@/components/storyblok/plugins/storyblok-rich-text-react-renderer/RichText";
 import { useInView } from 'react-intersection-observer';
 
 const TextWithHeadingAside = ({ blok }) => {

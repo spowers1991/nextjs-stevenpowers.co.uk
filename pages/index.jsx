@@ -1,10 +1,9 @@
-import Meta from "@/components/misc/Meta";
+import Meta from "@/components/seo/Meta";
 import { getMetaData } from '@/lib/seo/helpers/getMetaData'
-import { getStaticProps as fetchStaticProps } from '@/lib/storyblok/actions/generatePageData';
+import { getStaticProps as fetchStaticProps } from '@/lib/storyblok/stories/actions/generatePageData';
 
 import {
   useStoryblokState,
-  getStoryblokApi,
   StoryblokComponent,
 } from "@storyblok/react";
 

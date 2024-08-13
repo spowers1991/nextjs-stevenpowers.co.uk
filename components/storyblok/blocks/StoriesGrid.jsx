@@ -1,21 +1,33 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import { storyblokEditable } from "@storyblok/react";
 import { useInView } from 'react-intersection-observer';
-import { useStoryblok } from '@/lib/storyblok/StoryblokContext';
+import { useStories } from '@/lib/storyblok/stories/StoriesContext';
 import Heading from '@/components/html_tags/Heading'
 import Image from 'next/image';
 import Link from 'next/link';
+import Pagination from '@/components/storyblok/filters/selectors/Pagination';
+import { useFilters } from '@/lib/storyblok/filters/FiltersContext';
 
-const PostsGrid = ({ blok }) => {
+const StoriesGrid = ({ blok }) => {
 
   const [ref, inView] = useInView({
     triggerOnce: false, // Only trigger once when it first comes into view
     threshold: 0.015,   // When 1.5% of the element is in view
   });
 
-  const { getStoriesByIds, getStoriesTags } = useStoryblok();
-  const filteredStories = getStoriesByIds(blok.posts);
-  const tags = getStoriesTags(filteredStories)
+  const { filteredStories, setFilteredStories } = useFilters();
+  
+  
+  const { getStoriesByIds, getStoriesTags } = useStories();
+  const pickedStories = getStoriesByIds(blok.posts);
+  const tags = getStoriesTags(pickedStories)
+
+  useEffect(() => {
+    filteredStories?.length > 0 ?
+      setFilteredStories(pickedStories?.slice(0, 6))
+      :
+      setFilteredStories(pickedStories?.slice(0, 6))
+  }, [ setFilteredStories]);
 
   let FirstFullWidthImageBlok = null;
   const blurDataURL = "data:image/jpeg;base64,..."
@@ -26,7 +38,7 @@ const PostsGrid = ({ blok }) => {
         {blok.title ? blok.title : 'Related Projects'}
       </Heading>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-6 gap-y-12">
-        {filteredStories.map((story, index) => (
+        {filteredStories?.map((story, index) => (
           // Get the image from the first full width image block is on the post.
           FirstFullWidthImageBlok = story.content.body.filter(story => story.component === "full_width_image")[0],
           
@@ -86,8 +98,11 @@ const PostsGrid = ({ blok }) => {
           </div>
         ))}
       </div>
+      {pickedStories.length > 3 &&
+        <Pagination stories={pickedStories} storiesPerPage={3} />
+       }
     </div>
   );
 };
 
-export default PostsGrid;
+export default StoriesGrid;

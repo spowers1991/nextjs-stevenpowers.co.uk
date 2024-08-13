@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
-import { useStoryblok } from '@/lib/storyblok/StoryblokContext';
+import { useSettings } from '@/lib/storyblok/settings/SettingsContext';
 import MobileMenu from './MobileMenu';
 
 const Header = () => {
 
-const { globalSettings } = useStoryblok();    
+const { globalSettings } = useSettings();   
+
 const router = useRouter();
 
 const [mobileMenuToggleState, setMobileMenuToggleState] = useState(false);

@@ -1,11 +1,14 @@
 import React, { useEffect } from 'react';
-import Meta from "@/components/misc/Meta";
+import Meta from "@/components/seo/Meta";
 import { useInView } from 'react-intersection-observer';
 import Image from 'next/image';
 import Heading from '@/components/html_tags/Heading';
-import { useStoryblok } from '@/lib/storyblok/StoryblokContext';
 import Link from 'next/link';
-import StoriesPagination from '@/components/selectors/StoriesPagination';
+import Pagination from '@/components/storyblok/filters/selectors/Pagination';
+
+// Context  
+import { useStories } from '@/lib/storyblok/stories/StoriesContext';
+import { useFilters } from '@/lib/storyblok/filters/FiltersContext';
 
 const Projects = () => {
   const [ref, inView] = useInView({
@@ -13,14 +16,15 @@ const Projects = () => {
     threshold: 0.015,
   });
 
-  const { getStoriesByContentType, getStoriesTags, paginatedStories, setPaginatedStories } = useStoryblok();
+  const { getStoriesByContentType, getStoriesTags } = useStories();
+  const { filteredStories, setFilteredStories } = useFilters();
 
   const stories = getStoriesByContentType('project');
   const tags = getStoriesTags(stories);
 
   useEffect(() => {
-    setPaginatedStories(stories.slice(0, 6));
-  }, [setPaginatedStories]);
+    setFilteredStories(stories?.slice(0, 6))
+  }, [ setFilteredStories]);
 
   return (
     <Meta>
@@ -30,7 +34,7 @@ const Projects = () => {
             Projects
           </Heading>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-6 gap-y-12">
-            {paginatedStories?.map((story, index) => {
+            {filteredStories?.map((story, index) => {
               // Extract the first full width image block from the story content
               const FirstFullWidthImageBlok = story?.content?.body?.find(block => block.component === "full_width_image");
 
@@ -87,7 +91,7 @@ const Projects = () => {
               );
             })}
           </div>
-          <StoriesPagination stories={stories} storiesPerPage={6}/>
+          <Pagination stories={stories} storiesPerPage={6} />
         </div>
       </main>
     </Meta>

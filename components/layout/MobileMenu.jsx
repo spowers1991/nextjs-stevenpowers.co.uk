@@ -1,11 +1,11 @@
 import React from 'react';
 import Link from 'next/link';
-import { useStoryblok } from '@/lib/storyblok/StoryblokContext';
+import { useSettings } from '@/lib/storyblok/settings/SettingsContext';
 import { useRouter } from 'next/router';
 
 const MobileMenu = ({ mobileMenuToggleState, mobileMenuToggleCallback }) => {
 
-  const { globalSettings } = useStoryblok();   
+  const { globalSettings } = useSettings();   
 
   const router = useRouter();
 

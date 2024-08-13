@@ -1,7 +1,7 @@
-import Meta from "@/components/misc/Meta";
+import Meta from "@/components/seo/Meta";
 import { getMetaData } from '@/lib/seo/helpers/getMetaData';
-import { getStaticPaths as fetchStaticPaths } from '@/lib/storyblok/actions/generatePages';
-import { getStaticProps as fetchStaticProps } from '@/lib/storyblok/actions/generatePageData';
+import { getStaticPaths as fetchStaticPaths } from '@/lib/storyblok/stories/actions/generatePages';
+import { getStaticProps as fetchStaticProps } from '@/lib/storyblok/stories/actions/generatePageData';
 import { useStoryblokState, StoryblokComponent } from "@storyblok/react";
 
 export default function Page({ story }) {
