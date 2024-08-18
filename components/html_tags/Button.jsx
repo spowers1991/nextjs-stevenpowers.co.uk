@@ -33,7 +33,7 @@ const Button = ({ href, color, children, className, newTab }) => {
 
     return (
         href && 
-            <Link href={resolveLink(href)} target={newTab === true ? '_blank' : null} className={`${className} flex items-center gap-x-3 ${bgColor} h-[37.5px] sm:h-[43px] duration-150 py-[11px] sm:py-[12px] px-5   uppercase text-[11px] sm:text-xs font-[500] tracking-[1px]`}>
+            <Link href={resolveLink(href)} target={newTab === true ? '_blank' : null} className={`${className} flex items-center gap-x-3 ${bgColor} h-[37.5px] sm:h-[43px] duration-150 py-[11px] sm:py-[12px] px-5 uppercase text-[11px] sm:text-xs font-[500] tracking-[1px]`}>
                 <div className='flex items-center gap-3 sm:gap-x-4'>
                     {children} 
                     {svgIcon && svgIcon}

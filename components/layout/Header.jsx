@@ -33,7 +33,7 @@ const [scrollPosition, setScrollPosition] = useState(0);
   }, []);
 
   return (
-      <header className='z-30 w-full bg-white fixed '>
+      <header className='z-50 w-full bg-white fixed '>
         <div className={`${scrollPosition > 100 && '!py-4'} duration-500 lg:flex lg:justify-between lg:items-center py-6 mx-auto container font-inter px-6 xl:px-16 3xl:px-0`}>
             <div className="flex justify-between items-center">
                 <div>

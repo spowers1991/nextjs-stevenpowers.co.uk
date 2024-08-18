@@ -21,3 +21,7 @@
 .swiper-thumbnail-slider .swiper-slide-active .overlay{
     opacity: 0 !important;
 }
+
+.projects ~ .scroll-to-top-button {
+    display: none;
+}
