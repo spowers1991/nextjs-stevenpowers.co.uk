@@ -1,17 +1,8 @@
-import React, { useState, useEffect } from 'react';
-import { useFilters } from '@/lib/storyblok/filters/FiltersContext';
-import { calculateTotalPages, getPaginatedItems } from '@/lib/storyblok/filters/helpers/getStoriesPagination';
+import React from 'react';
+import { calculateTotalPages } from '../helpers/getStoriesPagination';
 
-function Pagination({ stories, storiesPerPage }) {
-  // Pagination Instance State
-  const totalPages = calculateTotalPages(stories?.length, storiesPerPage);
-  const [currentPage, setCurrentPage] = useState(1);
-
-  // Filter stories for the current Pagination Segment
-  const { setFilteredStories } = useFilters();
-  useEffect(() => {
-    setFilteredStories(getPaginatedItems(stories, currentPage, storiesPerPage));
-  }, [currentPage]);
+function Pagination({ storiesToFilter, storiesPerPage, currentPage, setCurrentPage }) {
+  const totalPages = calculateTotalPages(storiesToFilter.length, storiesPerPage);
 
   // Pagination change event
   const handlePaginationChange = (index) => {
@@ -19,11 +10,6 @@ function Pagination({ stories, storiesPerPage }) {
       setCurrentPage(index);
     }
   };
-
-  // Reset page to 0 when unmounting component
-  useEffect(() => {
-    setCurrentPage(1)
-  }, []);
 
   return (
     <div className="container mx-auto flex mt-12 md:mt-24 shadow-2xl w-fit">
@@ -38,7 +24,7 @@ function Pagination({ stories, storiesPerPage }) {
         </div>
         <div className="container mx-auto flex">
           <div className="flex text-[#fff] ml-auto">
-            <div className={`flex items-center bg-[#434bed]  cursor-pointer duration-150`}>
+            <div className={`flex items-center bg-[#434bed] cursor-pointer duration-150`}>
               {Array.from({ length: totalPages }, (_, index) => (
                 <span key={index + 1} className={`py-[11px] sm:py-[12px] px-6 cursor-pointer duration-150 ${currentPage === index + 1 ? 'bg-[#43ed90]' : 'bg-[#434bed] '} `} onClick={() => handlePaginationChange(index + 1)}>
                   {index + 1}
