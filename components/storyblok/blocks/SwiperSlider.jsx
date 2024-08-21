@@ -49,6 +49,14 @@ const [ref, inView] = useInView({
           resistanceRatio={0}
           centeredSlides={false}
           spaceBetween={15}
+          breakpoints={{
+            0: {
+              slidesPerView: 1.12,
+            },
+            400: {
+              slidesPerView: 1.5,
+            },
+          }}
           className={`swiperSlider xxl:container`}
         >
           {blok.slides.map(( slide, index ) => (
