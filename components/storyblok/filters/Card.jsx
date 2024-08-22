@@ -1,28 +1,25 @@
 import React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import { useStories } from '@/lib/storyblok/stories/StoriesContext';
+import Tags from '@/components/storyblok/blocks/partials/Tags'
 
 const Card = ( {story} ) => {
 
  const FirstFullWidthImageBlok = story?.content?.body?.find(block => block.component === "full_width_image");
-
- const { getStoriesTags } = useStories();
- const tags = getStoriesTags(story);
 
   return (
     <Link key={story.uuid} href={`/projects/${story.slug}`} passHref>
         <div className='relative col-span-1 bg-white flex flex-col h-full cursor-pointer hover:shadow-2xl duration-150'>
             <div className='relative overflow-hidden flex items-center flex-shrink-0'>
                 {FirstFullWidthImageBlok?.image?.filename && (
-                <Image
-                    src={FirstFullWidthImageBlok.image.filename}
-                    alt={FirstFullWidthImageBlok.image.alt}
-                    width={800}
-                    height={600}
-                    className="w-full object-cover"
-                    priority={true}
-                />
+                    <Image
+                        src={FirstFullWidthImageBlok.image.filename}
+                        alt={FirstFullWidthImageBlok.image.alt}
+                        width={800}
+                        height={600}
+                        className="w-full object-cover"
+                        priority={true}
+                    />
                 )}
                 <div className='bg-[#434bed] opacity-20 absolute w-full h-full left-0 top-0' />
             </div>
@@ -30,24 +27,11 @@ const Card = ( {story} ) => {
                 <h3 className='text-xl sm:text-2xl md:text-2xl font-bold z-20 leading-[1.1] md:leading-[1] [&_u]:text-[#434bed] [&_u]:underline'>
                 {story.name}
                 </h3>
-                {tags?.length > 0 && 
-                <div className="flex flex-col gap-2"> 
-                    <span className="uppercase text-[11px] sm:text-xs font-[700] tracking-[1px]">
-                    Tags:
-                    </span>
-                    <div className="flex flex-row flex-wrap gap-3">
-                        {tags.map((tag, tagIndex) => (
-                        <span key={tagIndex} className="bg-[#9043ed] text-white h-[37.5px] sm:h-[43px] b-[10px] sm:pb-[11px] flex items-center gap-x-3 duration-150 py-[11px] sm:py-[12px] px-5 uppercase text-[11px] sm:text-xs font-[500] tracking-[1px]">
-                            {tag}
-                        </span>
-                        ))}
-                    </div>
-                </div>
-                }
+                <Tags tags={story.tag_list} />
                 {story?.content?.meta_description && (
-                <div className='text-base sm:text-lg'>
-                    {story.content.meta_description}
-                </div>
+                    <div className='text-base sm:text-lg'>
+                        {story.content.meta_description}
+                    </div>
                 )}
                 <div className={`w-fit flex items-center gap-x-3 bg-[#434bed] text-white duration-150 py-[11px] sm:py-[12px] px-5 uppercase text-[11px] sm:text-xs font-[500] tracking-[1px] mt-auto`}>
                 <div className={`flex items-center gap-3 sm:gap-x-4`}>

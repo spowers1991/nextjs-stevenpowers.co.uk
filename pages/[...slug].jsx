@@ -10,7 +10,7 @@ export default function Page({ story }) {
 
   return (
     <Meta metadata={metadata}>
-      <StoryblokComponent blok={story.content} />
+      <StoryblokComponent blok={story.content} story={story}/>
     </Meta>
   );
 }
