@@ -14,7 +14,7 @@ const FilteredStories = ({ stories, page }) => {
             </div>
         :
             <div className="text-center text-lg">
-            No project available for these filters...
+              No project available for these filters...
             </div>
         }
     </>

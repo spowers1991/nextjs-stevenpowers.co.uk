@@ -16,7 +16,7 @@ const Searchbar = ({ label, propertyToSearch, filtersHandler }) => {
 
   return (
     <div className='flex flex-col gap-2'>
-      <h3 className='font-bold'>
+      <h3 className='font-bold uppercase text-[11px] sm:text-xs tracking-[1px]'>
         {label}
       </h3>
       <div className='flex items-center border-2 border-solid focus-within:border-[#434bed] hover:border-[#434bed] border-[#434bed]'>

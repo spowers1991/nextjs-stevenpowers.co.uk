@@ -22,7 +22,7 @@ const Checkbox = ({ storiesToFilter, label, propertyToSearch, filtersHandler }) 
 
   return (
     <div className='flex flex-col gap-2'>
-      <h3 className='font-bold'>
+      <h3 className='font-bold uppercase text-[11px] sm:text-xs tracking-[1px]'>
         {label}
       </h3>
       <div className='grid grid-cols-2 w-fit gap-x-6 gap-y-3'>
@@ -36,7 +36,7 @@ const Checkbox = ({ storiesToFilter, label, propertyToSearch, filtersHandler }) 
             onChange={handleCheckboxChange}
           />
           <div className='w-6 h-6 bg-gray-200 border-white border-2 peer-checked:bg-[#434bed] peer-checked:content-[""] peer-checked:after:content-[""] peer-checked:after:block peer-checked:after:absolute peer-checked:after:w-4 peer-checked:after:h-2 peer-checked:after:border-b-2 peer-checked:after:rotate-45 peer-checked:after:left-1 peer-checked:after:top-2 '></div>
-          <span className="ml-2 text-gray-700 peer-checked:text-[#333] peer-checked:font-bold tracking-[.625px]">
+          <span className="ml-1 text-gray-700 peer-checked:text-[#333] py-[11px] sm:py-[12px] uppercase text-[11px] sm:text-xs font-[500] tracking-[1px]">
             {option}
           </span>
         </label>        
