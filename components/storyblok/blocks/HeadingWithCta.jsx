@@ -13,7 +13,7 @@ const HeadingWithCta = ({ blok, story }) => {
     });
     
     return(
-        <div ref={ref} className={`mx-auto container ${blok.border_bottom ? 'py-16 md:py-28 border-b' : 'my-16 md:my-28'} px-6 xl:px-16 3xl:px-0 duration-500 ${inView ? 'opacity-100' : 'opacity-20'}`} {...storyblokEditable(blok)}>             
+        <div ref={ref} className={`mx-auto container ${blok.border_bottom ? 'py-16 md:py-28 border-b' : 'my-16 md:my-28'} px-6 md:px-12 xl:px-16 3xl:px-0 duration-500 ${inView ? 'opacity-100' : 'opacity-20'}`} {...storyblokEditable(blok)}>             
             <div className="flex flex-col sm:flex-row">
                 <div className={`${blok.meta_field ? 'w-1/2' : 'w-full'} : flex flex-col gap-y-6`}>
                     

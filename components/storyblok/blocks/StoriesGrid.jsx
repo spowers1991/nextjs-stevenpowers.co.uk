@@ -18,7 +18,7 @@ const StoriesGrid = ({ blok }) => {
   const pickedStories = getStoriesByIds(blok.posts);
 
   return (
-    <div ref={ref} className={`mx-auto container my-16 md:my-28 px-6 xl:px-16 3xl:px-0 duration-500 ${inView ? 'opacity-100' : 'opacity-20'}`} {...storyblokEditable(blok)}>
+    <div ref={ref} className={`mx-auto container my-16 md:my-28 px-6 md:px-12 xl:px-16 3xl:px-0 duration-500 ${inView ? 'opacity-100' : 'opacity-20'}`} {...storyblokEditable(blok)}>
       <Heading size='h3' className='mb-12'>
         {blok.title ? blok.title : 'Related Projects'}
       </Heading>
