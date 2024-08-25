@@ -13,7 +13,7 @@ const SplitImage = ({ blok }) => {
 
     return(
         <div ref={ref} className={`mx-auto container px-6 xl:px-16 3xl:px-0 duration-500 my-12 md:my-24 ${inView ? 'opacity-100' : 'opacity-20'}`} {...storyblokEditable(blok)}>  
-            <div className="flex flex-col sm:flex-row gap-3">
+            <div className="flex flex-col sm:flex-row gap-x-6 gap-y-12">
                 {blok.images?.map(( image, index ) => (
                         <div key={index} className="w-full sm:w-1/2">
                             <Image
