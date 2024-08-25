@@ -1,5 +1,7 @@
 import { buffer } from 'micro';
 
+const apiUrl = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:3000';
+
 export const config = {
   api: {
     bodyParser: false,
@@ -19,7 +21,7 @@ export default async function handler(req, res) {
 
     try {
       // Trigger revalidation
-      const response = await fetch('http://localhost:3000/api/revalidate', {
+      const response = await fetch(`${apiUrl}/api/revalidate`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
