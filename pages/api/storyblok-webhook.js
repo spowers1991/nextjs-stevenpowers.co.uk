@@ -21,7 +21,7 @@ export default async function handler(req, res) {
     console.log(pathToRevalidate)
     try {
       // Trigger revalidation
-      const response = await fetch(`/${apiUrl}/api/revalidate`, {
+      const response = await fetch(`${apiUrl}/api/revalidate`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
