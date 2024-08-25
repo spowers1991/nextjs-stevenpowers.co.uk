@@ -5,11 +5,14 @@ export default async function handler(req, res) {
   }
 
   const { path } = req.body;
-  console.log(path);
+
+  if (!path) {
+    return res.status(400).json({ message: 'Path is required' });
+  }
 
   try {
-    // Set the Revalidate header to trigger revalidation
-    res.setHeader('Revalidate', '1');
+    // Trigger revalidation for the given path
+    await res.revalidate(path);
     return res.status(200).json({ message: `Revalidated ${path}` });
   } catch (err) {
     console.error('Error revalidating:', err);
