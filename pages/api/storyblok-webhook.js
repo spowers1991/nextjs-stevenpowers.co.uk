@@ -1,7 +1,7 @@
 import { buffer } from 'micro';
 
 const apiUrl = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:3000';
-
+console.log(apiUrl)
 export const config = {
   api: {
     bodyParser: false,
@@ -18,7 +18,7 @@ export default async function handler(req, res) {
 
   if (payload.action === 'published' || payload.action === 'updated') {
     const pathToRevalidate = `/${payload.full_slug}`;
-
+    console.log(payload)
     try {
       // Trigger revalidation
       const response = await fetch(`${apiUrl}/api/revalidate`, {
