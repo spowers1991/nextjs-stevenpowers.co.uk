@@ -17,8 +17,8 @@ export default async function handler(req, res) {
   const payload = JSON.parse(buf.toString());
 
   if (payload.action === 'published' || payload.action === 'updated') {
-    const pathToRevalidate = `${payload.full_slug}`;
-    console.log(payload)
+    const pathToRevalidate = `/${payload.full_slug}`;
+    console.log(pathToRevalidate)
     try {
       // Trigger revalidation
       const response = await fetch(`/${apiUrl}/api/revalidate`, {
