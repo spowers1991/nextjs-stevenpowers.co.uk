@@ -1,4 +1,3 @@
-// pages/api/revalidate.js
 export default async function handler(req, res) {
   if (req.method !== 'POST') {
     return res.status(405).json({ message: 'Only POST requests allowed' });
@@ -13,6 +12,12 @@ export default async function handler(req, res) {
   try {
     // Trigger revalidation for the given path
     await res.revalidate(path);
+
+    // Set headers to prevent caching of this response
+    res.setHeader('Cache-Control', 'no-cache, no-store, must-revalidate');
+    res.setHeader('Pragma', 'no-cache');
+    res.setHeader('Expires', '0');
+
     return res.status(200).json({ message: `Revalidated ${path}` });
   } catch (err) {
     console.error('Error revalidating:', err);
