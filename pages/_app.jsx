@@ -3,9 +3,9 @@ import App from 'next/app';
 
 // Storyblok API plugins
 import { storyblokInit, apiPlugin } from "@storyblok/react";
+import StoryblokBridgeLoader from "@storyblok/react/bridge-loader";
 
 // Context providers
-
 import { SettingsProvider } from '@/lib/storyblok/settings/SettingsContext'
 import { StoriesProvider } from '@/lib/storyblok/stories/StoriesContext';
 
@@ -64,6 +64,7 @@ function NextApp({ Component, pageProps, stories, globalSettings }) {
       <StoriesProvider stories={stories}>
         <Header />
           <Component {...pageProps} />
+          <StoryblokBridgeLoader />
         <Footer />
       </StoriesProvider>
     </SettingsProvider>
