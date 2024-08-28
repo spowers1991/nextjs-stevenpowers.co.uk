@@ -58,6 +58,7 @@ storyblokInit({
 });
 
 function NextApp({ Component, pageProps, stories, globalSettings }) {
+
   return (
     <SettingsProvider initialSettings={globalSettings}>
       <StoriesProvider stories={stories}>
