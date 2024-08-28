@@ -5,7 +5,6 @@ import App from 'next/app';
 import { storyblokInit, apiPlugin } from "@storyblok/react";
 
 // Context providers
-
 import { SettingsProvider } from '@/lib/storyblok/settings/SettingsContext'
 import { StoriesProvider } from '@/lib/storyblok/stories/StoriesContext';
 
@@ -59,6 +58,7 @@ storyblokInit({
 });
 
 function NextApp({ Component, pageProps, stories, globalSettings }) {
+
   return (
     <SettingsProvider initialSettings={globalSettings}>
       <StoriesProvider stories={stories}>
