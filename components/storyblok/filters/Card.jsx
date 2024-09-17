@@ -17,7 +17,7 @@ const Card = ( {story} ) => {
                         alt={FirstFullWidthImageBlok.image.alt}
                         width={800}
                         height={600}
-                        className="w-full object-cover h-[300px]"
+                        className="w-full object-cover h-[200px] sm:h-[300px]"
                         priority={true}
                     />
                 )}

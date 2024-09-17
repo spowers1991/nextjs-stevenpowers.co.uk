@@ -22,40 +22,42 @@ const HeadingWithCta = ({ blok, story }) => {
                     </Heading>
 
                     <Tags tags={blok?.tags?.length > 0 ? blok?.tags : story?.tag_list}/>
-                    
-                    <div className="flex flex-row flex-wrap gap-3 sm:gap-3 items-center ">
-                        {blok.button_label &&
-                            <Button href={blok.button_link.cached_url} newTab={blok.button_new_tab}  className="pb-[10px] sm:pb-[11px]" color={blok.button_colour}>
-                                {blok.button_label} 
-                            </Button>
-                        }
 
-                        {blok.button_2_label &&
-                            <Button href={blok.button_2_link.cached_url} newTab={blok.button_2_new_tab} className="pb-[10px] sm:pb-[11px]" color={blok.button_2_colour}>
-                                {blok.button_2_label}
-                            </Button>
-                        }
-                    </div>
-                </div>
+                    {blok.button_label &&
+                        <div className="flex flex-row flex-wrap gap-3 sm:gap-3 items-center">
+                            {blok.button_label &&
+                                <Button href={blok.button_link.cached_url} newTab={blok.button_new_tab}  className="pb-[10px] sm:pb-[11px]" color={blok.button_colour}>
+                                    {blok.button_label} 
+                                </Button>
+                            }
 
-                {blok?.meta_info &&
-                    <div className="w-full sm:w-1/2 self-end flex mt-12 sm:mt-0">
-                        <div className="sm:ml-auto">
-                        { blok?.meta_info?.map(( meta_field, index ) => (
-                                <div key={index}>
-                                    <span className="uppercase text-[11px] sm:text-xs tracking-[1px] mr-1">
-                                        {meta_field.label}:
-                                    </span> 
-                                    <span className="uppercase text-[11px] sm:text-xs font-[700] tracking-[1px]">
-                                        {meta_field.value}
-                                    </span>
-                                </div>
-                            ))
-                        }
+                            {blok.button_2_label &&
+                                <Button href={blok.button_2_link.cached_url} newTab={blok.button_2_new_tab} className="pb-[10px] sm:pb-[11px]" color={blok.button_2_colour}>
+                                    {blok.button_2_label}
+                                </Button>
+                            }
                         </div>
-                    </div>
-                }
+                    }
 
+                </div>
+                {blok?.meta_info &&
+                    blok?.meta_info.length > 0 &&
+                        <div className="w-full sm:w-1/2 self-end flex mt-12 sm:mt-0">
+                            <div className="sm:ml-auto">
+                                { blok?.meta_info?.map(( meta_field, index ) => (
+                                        <div key={index}>
+                                            <span className="uppercase text-[11px] sm:text-xs tracking-[1px] mr-1">
+                                                {meta_field.label}:
+                                            </span> 
+                                            <span className="uppercase text-[11px] sm:text-xs font-[700] tracking-[1px]">
+                                                {meta_field.value}
+                                            </span>
+                                        </div>
+                                    ))
+                                }
+                            </div>
+                        </div>
+                }
             </div>
         </div>
     )
