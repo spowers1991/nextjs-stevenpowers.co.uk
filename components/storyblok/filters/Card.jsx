@@ -25,7 +25,7 @@ const Card = ( {story} ) => {
             </div>
             <div className='p-6 flex flex-col flex-grow gap-y-6 '>
                 <h3 className='text-xl sm:text-2xl md:text-2xl font-bold z-20 leading-[1.1] md:leading-[1] [&_u]:text-[#434bed] [&_u]:underline'>
-                {story.name}
+                    {story.name}
                 </h3>
                 <Tags tags={story.tag_list} />
                 {story?.content?.meta_description && (
