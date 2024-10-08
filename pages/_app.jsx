@@ -1,5 +1,6 @@
 // The default App component from Next.js
 import App from 'next/app'; 
+import LoadingScreen from '../components/utils/LoadingScreen';
 
 // Storyblok API plugins
 import { storyblokInit, apiPlugin } from "@storyblok/react";
@@ -63,7 +64,9 @@ function NextApp({ Component, pageProps, stories, globalSettings }) {
     <SettingsProvider initialSettings={globalSettings}>
       <StoriesProvider stories={stories}>
         <Header />
-          <Component {...pageProps} />
+          <LoadingScreen>
+            <Component {...pageProps} />
+          </LoadingScreen>
         <Footer />
       </StoriesProvider>
     </SettingsProvider>

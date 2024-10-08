@@ -17,12 +17,12 @@ const SwiperSlider = ({ blok }) => {
 
 const [ref, inView] = useInView({
     triggerOnce: false, // Only trigger once when it first comes into view
-    threshold: 0.5,    // When 50% of the element is in view
+    threshold: 0.45,    // When 50% of the element is in view
   });
 
   return (
     <>
-      <div ref={ref} className={`my-16 md:my-24 -mt-12 sm:!-mt-16 relative duration-1000 ease-out ${inView ? 'opacity-100' : 'opacity-20'}`}  {...storyblokEditable(blok)}>
+      <div ref={ref} className={`my-16 md:my-24 -mt-12 sm:!-mt-16 relative duration-[2.25s] ease ${inView ? 'opacity-100' : 'opacity-20'}`}  {...storyblokEditable(blok)}>
         <div className='container mx-auto flex my-6 px-6 md:px-12 xl:px-16 3xl:px-0 pt-8 lg:pt-0'>
             <div className='hidden md:flex gap-x-3 text-[#fff] ml-auto mt-6 sm:mt-0'>
               <div className={`flex items-center bg-[#434bed] py-[11px] sm:py-[12px] px-5 swiper-prev-${blok._uid} cursor-pointer duration-150`}>

@@ -12,7 +12,7 @@ const FullWidthImage = ({ blok }) => {
     const blurDataURL = "data:image/jpeg;base64,..."
     
     return(
-        <div ref={ref} className={`mx-auto container px-6 xl:px-16 3xl:px-0 my-12 md:my-24 duration-500 ${inView ? 'opacity-100' : 'opacity-20'}`} {...storyblokEditable(blok)}>  
+        <div ref={ref} className={`mx-auto container px-6 xl:px-16 3xl:px-0 my-12 md:my-24 duration-[2s] ${inView ? 'opacity-100' : 'opacity-20'}`} {...storyblokEditable(blok)}>  
             <Image
                 src={blok.image.filename}
                 alt={blok.image.alt}

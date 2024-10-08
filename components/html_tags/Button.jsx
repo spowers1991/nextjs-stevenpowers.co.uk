@@ -24,6 +24,11 @@ const Button = ({ href, color, children, className, newTab }) => {
         svgIcon = (
             <svg className="w-4 h-4 sm:w-5 sm:h-5" fill="currentColor" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M0 12c0 6.627 5.373 12 12 12s12-5.373 12-12-5.373-12-12-12-12 5.373-12 12zm7.58 0l5.988-5.995 1.414 1.416-4.574 4.579 4.574 4.59-1.414 1.416-5.988-6.006z"/></svg>
         );
+    } else if (color === 'contact') {
+        bgColor = 'bg-[#43ed90] text-[#000]';
+        svgIcon = (
+            <svg className="w-4 h-4 sm:w-5 sm:h-5" fill="currentColor"  clipRule="evenodd" fillRule="evenodd" strokeLinejoin="round" strokeMiterlimit="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 12.713l-11.985-9.713h23.97l-11.985 9.713zm0 2.574l-12-9.725v15.438h24v-15.438l-12 9.725z"/></svg>
+        );
     } else {
         bgColor = 'bg-[#434bed] text-white';
         svgIcon = (
