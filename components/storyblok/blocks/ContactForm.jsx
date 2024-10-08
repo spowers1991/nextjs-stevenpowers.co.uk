@@ -8,7 +8,7 @@ const ContactForm = () => {
     const [pending, setPending] = useState(false);
 
     return(
-        <div className={` font-inter mx-auto container my-16 md:my-28 px-6 md:px-12 xl:px-16 3xl:px-0  duration-500 `}>  
+        <div className={` font-inter mx-auto container my-16 md:my-28 px-6 md:px-12 xl:px-16 3xl:px-0 duration-500 `}>  
             <Heading size="h3" className="pb-5">
                 {submissionSuccess ? 'You have sent a message...' : 'Send an email...'}
             </Heading>
