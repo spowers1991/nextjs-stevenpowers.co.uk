@@ -24,7 +24,7 @@ const LoadingScreen = ({ children }) => {
     }, [router?.events]); // Add router.events as a dependency
 
     return (
-        <div className={`duration-[.25s] ease ${loading ? 'opacity-0' : 'opacity-100'}`}>
+        <div className={`duration-[.1s] ease ${loading ? 'opacity-0' : 'opacity-100'}`}>
             {children}     
         </div>
     );
