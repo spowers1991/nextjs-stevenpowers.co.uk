@@ -32,7 +32,7 @@ const Projects = () => {
       <main className={`${pageName} font-inter bg-[#f4f4f4] pt-20`}>
         <div ref={ref} className={`mx-auto container py-12 md:py-24 px-6 xl:px-16 3xl:px-0 duration-[2s] ${inView ? 'opacity-100' : 'opacity-20'}`}>
           <Heading size='h1' className="!text-4xl sm:!text-5xl">
-          <span className='text-[#aaa] hidden xl:inline w-fit'>Work history --</span> Projects
+          <span className='text-[#aaa] hidden xl:inline w-fit'></span> Projects
           </Heading>
           {currentFilters?.tag_list && currentFilters?.tag_list.length > 0 && 
             <div className='flex items-center gap-x-3 mb-6'>
